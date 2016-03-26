@@ -20,42 +20,42 @@ public class BinarySearchInMiddleItemTest {
     @org.junit.Test
     public void testGoodData() throws Exception {
         BinarySearchInMiddleItem<Integer> binarySearch = new BinarySearchInMiddleItem<>();
-        assertEquals(1,binarySearch.search((Integer[]) list.toArray(),2));
+        assertEquals(1,binarySearch.search(list,2));
     }
 
     @org.junit.Test
     public void testBadData() throws Exception {
         BinarySearchInMiddleItem<Integer> binarySearch = new BinarySearchInMiddleItem<>();
-        assertNotEquals(1,binarySearch.search((Integer[]) list.toArray(),4));
+        assertNotEquals(1,binarySearch.search(list,4));
     }
 
     @org.junit.Test
     public void testInside1() throws Exception {
         BinarySearchInMiddleItem<Integer> binarySearch = new BinarySearchInMiddleItem<>();
-        assertEquals(2,binarySearch.search((Integer[]) list.toArray(),5));
+        assertEquals(2,binarySearch.search(list,5));
     }
 
     @org.junit.Test
     public void testInside2() throws Exception {
         BinarySearchInMiddleItem<Integer> binarySearch = new BinarySearchInMiddleItem<>();
-        assertEquals(5,binarySearch.search((Integer[]) list.toArray(),11));
+        assertEquals(5,binarySearch.search(list,11));
     }
 
     @org.junit.Test
     public void testInside3() throws Exception {
         BinarySearchInMiddleItem<Integer> binarySearch = new BinarySearchInMiddleItem<>();
-        assertEquals(0,binarySearch.search((Integer[]) list.toArray(),1));
+        assertEquals(0,binarySearch.search(list,1));
     }
 
     @org.junit.Test
     public void testExceptionMinimal() throws Exception {
         BinarySearchInMiddleItem<Integer> binarySearch = new BinarySearchInMiddleItem<>();
-        assertEquals(-1,binarySearch.search((Integer[]) list.toArray(), -1));
+        assertEquals(-1,binarySearch.search(list, -1));
     }
 
     @org.junit.Test
     public void testExceptionMaximal() throws Exception {
         BinarySearchInMiddleItem<Integer> binarySearch = new BinarySearchInMiddleItem<>();
-        assertEquals(list.size(),binarySearch.search((Integer[]) list.toArray(), 50));
+        assertEquals(list.size(),binarySearch.search(list, 50));
     }
 }
