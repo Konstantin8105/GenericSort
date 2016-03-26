@@ -66,7 +66,7 @@ public class ResearchTest {
             System.out.print(String.format("%20s", sortClass.getClass().toString()));
             List<Integer> result = sortClass.sort(array);
             assertEquals(array.size(), result.size());
-            System.out.print(" .... OK\n");
+            System.out.print(" --> OK\n");
         }
     }
 
@@ -78,7 +78,7 @@ public class ResearchTest {
         for (Sort sortClass : getSortClasses()) {
             System.out.print(String.format("%20s", sortClass.getClass().toString()));
             double time = getTimeOfSort(array, sortClass);
-            System.out.print(String.format(" .... %4.1f ms\n", time));
+            System.out.print(String.format(" --> %4.1f ms\n", time));
         }
     }
 
@@ -90,7 +90,7 @@ public class ResearchTest {
         for (Sort sortClass : getSortClasses()) {
             System.out.print(String.format("%20s", sortClass.getClass().toString()));
             double time = getTimeOfSort(array, sortClass);
-            System.out.print(String.format(" .... %4.1f ms\n", time));
+            System.out.print(String.format(" --> %4.1f ms\n", time));
         }
     }
 
