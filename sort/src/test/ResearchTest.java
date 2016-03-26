@@ -6,7 +6,7 @@ import static org.junit.Assert.assertNotEquals;
 public class ResearchTest {
 
     private static Random random = new Random();
-    int sizeTest = 100_000;
+    int sizeTest = 10_000;
 
     @org.junit.Test
     public void testResearchNotUnique() throws Exception {
