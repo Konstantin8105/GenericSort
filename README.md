@@ -5,15 +5,14 @@ Sorting by java generic \<T extends Comparable\<T\>\>
 Result of research test:
 
 --------------------------------------------------
-#Test. Checking of correct result:
+Test. Checking of correct result:
 Amount elements = 10000 items
-
      class MergeSort .... OK
   class CountingSort .... OK
  class SelectionSort .... OK
  
 --------------------------------------------------
-#Test with many same items:
+Test with many same items:
 Amount elements = 10000 items
      class MergeSort ....  2.4 ms
   class CountingSort ....  0.4 ms
