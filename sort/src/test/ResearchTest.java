@@ -14,11 +14,13 @@ public class ResearchTest {
     // TODO add file in sorted array
     private static Sort[] getSortClasses() {
         return new Sort[]{
-                new MergeSort()
-                ,
-                new CountingSort()
-                ,
-                new SelectionSort()
+               // new MergeSort()
+               // ,
+                //new CountingSort()
+                //,
+                //new SelectionSort()
+                //,
+                new BinarySort()
         };
     }
 

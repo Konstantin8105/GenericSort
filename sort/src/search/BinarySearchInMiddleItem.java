@@ -7,8 +7,6 @@ public class BinarySearchInMiddleItem<T extends Comparable<T>> {
             throw new NullPointerException();
         if (list.length == 0)
             throw new IndexOutOfBoundsException();
-        if (list.length < 2)
-            return 0;
 
         if (find.compareTo(list[0]) < 0){
             return -1;
