@@ -13,6 +13,7 @@ public class MergeSort<T extends Comparable<T>> implements Sort<T> {
             return new ArrayList<>(list);
 
         mergeSort(list, 0, list.size() - 1);
+
         return list;
     }
 
