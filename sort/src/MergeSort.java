@@ -12,9 +12,10 @@ public class MergeSort<T extends Comparable<T>> implements Sort<T> {
         if (list.size() == 1)
             return new ArrayList<>(list);
 
-        mergeSort(list, 0, list.size() - 1);
+        List<T> output = new ArrayList<>(list);
+        mergeSort(output, 0, output.size() - 1);
 
-        return list;
+        return output;
     }
 
     private void mergeSort(List<T> list, int start, int end) {
