@@ -1,4 +1,3 @@
-import search.BinarySearch;
 import search.BinarySearchInMiddleItem;
 
 import java.util.Arrays;
@@ -48,15 +47,15 @@ public class BinarySearchInMiddleItemTest {
         assertEquals(0,binarySearch.search((Integer[]) list.toArray(),1));
     }
 
-    @org.junit.Test(expected = IndexOutOfBoundsException.class)
+    @org.junit.Test
     public void testExceptionMinimal() throws Exception {
         BinarySearchInMiddleItem<Integer> binarySearch = new BinarySearchInMiddleItem<>();
-        binarySearch.search((Integer[]) list.toArray(), -1);
+        assertEquals(-1,binarySearch.search((Integer[]) list.toArray(), -1));
     }
 
-    @org.junit.Test(expected = IndexOutOfBoundsException.class)
+    @org.junit.Test
     public void testExceptionMaximal() throws Exception {
         BinarySearchInMiddleItem<Integer> binarySearch = new BinarySearchInMiddleItem<>();
-        binarySearch.search((Integer[]) list.toArray(), 50);
+        assertEquals(list.size(),binarySearch.search((Integer[]) list.toArray(), 50));
     }
 }

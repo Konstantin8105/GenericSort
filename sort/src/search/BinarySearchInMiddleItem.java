@@ -10,6 +10,13 @@ public class BinarySearchInMiddleItem<T extends Comparable<T>> {
         if (list.length < 2)
             return 0;
 
+        if (find.compareTo(list[0]) < 0){
+            return -1;
+        }
+        if (find.compareTo(list[list.length-1]) > 0) {
+            return list.length;
+        }
+
         int low = 0;
         int middle;
         int high = list.length - 1;
