@@ -17,16 +17,24 @@ Amount elements = 10000 items
  
 --------------------------------------------------
 #Test with many same items:
+
 Amount elements = 10000 items
+
 >      class MergeSort -->  2.2 ms
+
 >   class CountingSort -->  0.4 ms
+
 >  class SelectionSort --> 105.6 ms
 
 --------------------------------------------------
 #Test with many unique items:
+
 Amount elements = 10000 items
+
 >      class MergeSort --> 29.8 ms
+
 >   class CountingSort --> 16.2 ms
+
 >  class SelectionSort --> 197.8 ms
 
 --------------------------------------------------
