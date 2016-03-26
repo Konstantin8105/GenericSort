@@ -51,6 +51,7 @@ Result of research
 >Time(ms):   20.0 |   51.6 |  548.0 |
 
 
+Result of research
 
 >class CountingSort
 
