@@ -5,6 +5,7 @@ Sorting by java generic \<T extends Comparable\<T\>\>
 Result of research test:
 
 --------------------------------------------------
+
 #Test. Checking of correct result:
 
 Amount elements = 10000 items
@@ -16,6 +17,7 @@ Amount elements = 10000 items
 >class SelectionSort --> OK
  
 --------------------------------------------------
+
 #Test with many same items:
 
 Amount elements = 10000 items
@@ -27,6 +29,7 @@ Amount elements = 10000 items
 >  class SelectionSort --> 105.6 ms
 
 --------------------------------------------------
+
 #Test with many unique items:
 
 Amount elements = 10000 items
@@ -38,6 +41,7 @@ Amount elements = 10000 items
 >class SelectionSort --> 197.8 ms
 
 --------------------------------------------------
+
 #Research of sorting:
 
 Amount elements = 10000.0 ... 1000000.0 items
@@ -58,6 +62,7 @@ Result of research
 >Amount:   10^4 |   10^5 |   10^6 |
 
 >Time(ms):    6.0 |   75.6 | 1237.6 |
+
 --------------------------------------------------
 
 
