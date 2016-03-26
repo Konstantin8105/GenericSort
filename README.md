@@ -46,10 +46,13 @@ Result of research
 
      class MergeSort
    Amount:   10^4 |   10^5 |   10^6 |
+
  Time(ms):   20.0 |   51.6 |  548.0 |
 
   class CountingSort
+
    Amount:   10^4 |   10^5 |   10^6 |
+
  Time(ms):    6.0 |   75.6 | 1237.6 |
 --------------------------------------------------
 
