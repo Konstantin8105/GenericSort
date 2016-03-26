@@ -44,15 +44,19 @@ Amount elements = 10000.0 ... 1000000.0 items
 
 Result of research
 
-     class MergeSort
-   Amount:   10^4 |   10^5 |   10^6 |
+>class MergeSort
 
- Time(ms):   20.0 |   51.6 |  548.0 |
+>Amount:   10^4 |   10^5 |   10^6 |
 
-  class CountingSort
-   Amount:   10^4 |   10^5 |   10^6 |
+>Time(ms):   20.0 |   51.6 |  548.0 |
 
- Time(ms):    6.0 |   75.6 | 1237.6 |
+
+
+>class CountingSort
+
+>Amount:   10^4 |   10^5 |   10^6 |
+
+>Time(ms):    6.0 |   75.6 | 1237.6 |
 --------------------------------------------------
 
 
