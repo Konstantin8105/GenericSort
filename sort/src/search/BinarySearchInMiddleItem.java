@@ -28,7 +28,7 @@ public class BinarySearchInMiddleItem<T extends Comparable<T>> {
                 throw new IndexOutOfBoundsException();
             }
 
-            if(high - low == 1){
+            if (high - low == 1) {
                 return low;
             }
 
