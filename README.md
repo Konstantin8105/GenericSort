@@ -1,3 +1,3 @@
 # GenericSort
 
-Sorting by java generic
+Sorting by java generic <T extends Comparable<T>>
