@@ -19,3 +19,5 @@ Result of research test:
                                            class CountingSort --> 19 ms
                                           class SelectionSort --> 242 ms
 --------------------------------------------------
+
+class SelectionSort is very slow, don`t use this class
