@@ -73,3 +73,4 @@ Result of research
 
 
 class SelectionSort is very slow, don`t use this class
+class BinarySort is very slow, don`t use this class
