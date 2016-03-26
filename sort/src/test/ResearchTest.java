@@ -115,7 +115,8 @@ public class ResearchTest {
 
         System.out.println("Result of research");
         for (Sort sortClass : getSortClasses()) {
-            if(sortClass instanceof SelectionSort){
+            if(sortClass instanceof SelectionSort ||
+                    sortClass instanceof BinarySort){
                 continue;
             }
             System.out.println(String.format("%20s", sortClass.getClass().toString()));
