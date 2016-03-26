@@ -119,13 +119,13 @@ public class ResearchTest {
             System.out.println(String.format("%20s", sortClass.getClass().toString()));
             System.out.print(String.format("%10s","Amount:"));
             for (int i = minExponent; i <= maxExponent; i++) {
-                System.out.print(String.format("  10^%d ", i));
+                System.out.print(String.format("   10^%d |", i));
             }
             System.out.println();
             System.out.print(String.format("%10s","Time(ms):"));
             for (int i = 0; i <= maxExponent - minExponent; i++) {
                 double time = getTimeOfSort(matrix.get(i), sortClass);
-                System.out.print(String.format("%6.1f ", time));
+                System.out.print(String.format("%7.1f |", time));
             }
             System.out.println("\n");
         }
