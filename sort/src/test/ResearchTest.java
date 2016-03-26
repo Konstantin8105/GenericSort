@@ -26,7 +26,8 @@ public class ResearchTest {
         Sort[] sorts = new Sort[]
                 {
                         new MergeSort(),
-                        new CountingSort()
+                        new CountingSort(),
+                        new SelectionSort()
                 };
 
         for (int i = 0; i < sorts.length; i++) {
@@ -62,7 +63,8 @@ public class ResearchTest {
         Sort[] sorts = new Sort[]
                 {
                         new MergeSort(),
-                        new CountingSort()
+                        new CountingSort(),
+                        new SelectionSort()
                 };
 
         for (int i = 0; i < sorts.length; i++) {
