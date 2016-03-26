@@ -7,9 +7,13 @@ Result of research test:
 --------------------------------------------------
 #Test. Checking of correct result:
 Amount elements = 10000 items
+
      class MergeSort .... OK
+     
   class CountingSort .... OK
+  
  class SelectionSort .... OK
+ 
 --------------------------------------------------
 #Test with many same items:
 Amount elements = 10000 items
