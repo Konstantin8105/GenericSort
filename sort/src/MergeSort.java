@@ -1,11 +1,7 @@
-import com.homework.java2.lesson1.ClassNameUtil;
-import org.apache.log4j.Logger;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class MergeSort<T extends Comparable<T>> implements Sort<T> {
-    private static Logger logger = Logger.getLogger(ClassNameUtil.getCurrentClassName());
 
     @Override
     public List<T> sort(List<T> list) {
