@@ -6,7 +6,7 @@ Result of research test:
 
 --------------------------------------------------
 
-#Test. Checking of correct result:
+##Test. Checking of correct result:
 
 Amount elements = 10000 items
 
@@ -18,7 +18,7 @@ Amount elements = 10000 items
  
 --------------------------------------------------
 
-#Test with many same items:
+##Test with many same items:
 
 Amount elements = 10000 items
 
@@ -30,7 +30,7 @@ Amount elements = 10000 items
 
 --------------------------------------------------
 
-#Test with many unique items:
+##Test with many unique items:
 
 Amount elements = 10000 items
 
@@ -42,7 +42,7 @@ Amount elements = 10000 items
 
 --------------------------------------------------
 
-#Research of sorting:
+##Research of sorting:
 
 Amount elements = 10000.0 ... 1000000.0 items
 
