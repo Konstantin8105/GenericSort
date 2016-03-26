@@ -9,9 +9,7 @@ Result of research test:
 Amount elements = 10000 items
 
      class MergeSort .... OK
-     
   class CountingSort .... OK
-  
  class SelectionSort .... OK
  
 --------------------------------------------------
