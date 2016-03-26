@@ -16,6 +16,7 @@ public class BinarySort<T extends Comparable<T>> implements Sort<T> {
         List<T> output = new ArrayList<>();
         output.add(list.get(0));
 
+        // TODO: 3/26/16 try to use one array - without realoocate array
         BinarySearchInMiddleItem<T> binary = new BinarySearchInMiddleItem<>();
         for (int i = 1; i < list.size(); i++) {
             T element = list.get(i);
