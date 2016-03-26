@@ -22,11 +22,11 @@ Amount elements = 10000 items
 
 Amount elements = 10000 items
 
->      class MergeSort -->  2.2 ms
+>class MergeSort -->  2.2 ms
 
->   class CountingSort -->  0.4 ms
+>class CountingSort -->  0.4 ms
 
->  class SelectionSort --> 105.6 ms
+>class SelectionSort --> 105.6 ms
 
 --------------------------------------------------
 
