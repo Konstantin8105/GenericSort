@@ -15,6 +15,8 @@ Amount elements = 10000 items
 >class CountingSort --> OK
 
 >class SelectionSort --> OK
+
+>class BinarySort --> OK
  
 --------------------------------------------------
 
@@ -28,6 +30,8 @@ Amount elements = 10000 items
 
 >class SelectionSort --> 105.6 ms
 
+>class BinarySort -->  7.6 ms
+
 --------------------------------------------------
 
 ##Test with many unique items:
@@ -39,6 +43,8 @@ Amount elements = 10000 items
 >class CountingSort --> 16.2 ms
 
 >class SelectionSort --> 197.8 ms
+
+>class BinarySort -->  5.6 ms
 
 --------------------------------------------------
 
