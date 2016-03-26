@@ -8,6 +8,9 @@ public class ResearchTest {
     private static Random random = new Random();
     int sizeTest = 10_000;
 
+    // TODO create good research
+    // TODO add file in sorted array
+
     @org.junit.Test
     public void testResearchNotUnique() throws Exception {
         System.out.println("\nTest with many same items:");
