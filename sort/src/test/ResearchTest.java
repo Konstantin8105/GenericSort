@@ -14,12 +14,12 @@ public class ResearchTest {
     // TODO add file in sorted array
     private static Sort[] getSortClasses() {
         return new Sort[]{
-               // new MergeSort()
-               // ,
-                //new CountingSort()
-                //,
-                //new SelectionSort()
-                //,
+                new MergeSort()
+                ,
+                new CountingSort()
+                ,
+                new SelectionSort()
+                ,
                 new BinarySort()
         };
     }
@@ -128,6 +128,7 @@ public class ResearchTest {
             for (int i = 0; i <= maxExponent - minExponent; i++) {
                 double time = getTimeOfSort(matrix.get(i), sortClass);
                 System.out.print(String.format("%7.1f |", time));
+                System.out.flush();
             }
             System.out.println("\n");
         }

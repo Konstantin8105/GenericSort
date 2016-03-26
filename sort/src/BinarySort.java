@@ -17,17 +17,15 @@ public class BinarySort<T extends Comparable<T>> implements Sort<T> {
         output.add(list.get(0));
 
         BinarySearchInMiddleItem<T> binary = new BinarySearchInMiddleItem<>();
-        for (int i = 1; i < list.size() - 1; i++) {
-            System.out.println("i=" + i + ";" + output);
+        for (int i = 1; i < list.size(); i++) {
             T element = list.get(i);
             int position = binary.search(list, element);
-            System.out.println("position=" + position);
             if (position == -1) {
                 output.add(0, element);
-            } else if (position == list.size()) {
+            } else if (position == list.size() || position > output.size() - 1) {
                 output.add(element);
             } else {
-                output.add(position + 1, element);
+                output.add(position, element);
             }
         }
         return output;
