@@ -130,6 +130,4 @@ public class ResearchTest {
             System.out.println("\n");
         }
     }
-
-
 }
