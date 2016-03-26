@@ -24,7 +24,7 @@ public class BinarySearch<T extends Comparable<T>>{
             if (list[high].compareTo(find) == 0)
                 return high;
 
-            if (find.compareTo(list[low]) < 0 || find.compareTo(list[high]) > 0) {
+            if (find.compareTo(list[low]) < 0 || find.compareTo(list[high]) > 0 || (high - low) == 1) {
                 throw new IndexOutOfBoundsException();
             }
 
