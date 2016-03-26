@@ -31,16 +31,19 @@ Amount elements = 10000 items
 
 Amount elements = 10000 items
 
->      class MergeSort --> 29.8 ms
+>class MergeSort --> 29.8 ms
 
->   class CountingSort --> 16.2 ms
+>class CountingSort --> 16.2 ms
 
->  class SelectionSort --> 197.8 ms
+>class SelectionSort --> 197.8 ms
 
 --------------------------------------------------
 #Research of sorting:
+
 Amount elements = 10000.0 ... 1000000.0 items
+
 Result of research
+
      class MergeSort
    Amount:   10^4 |   10^5 |   10^6 |
  Time(ms):   20.0 |   51.6 |  548.0 |
