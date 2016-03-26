@@ -7,26 +7,24 @@ Result of research test:
 --------------------------------------------------
 #Test. Checking of correct result:
 Amount elements = 10000 items
-
->     class MergeSort --> OK
->  class CountingSort --> OK
-> class SelectionSort --> OK
- 
+>      class MergeSort --> OK
+>   class CountingSort --> OK
+>  class SelectionSort --> OK
  
 --------------------------------------------------
 #Test with many same items:
 Amount elements = 10000 items
-     class MergeSort -->  2.6 ms
-     
-  class CountingSort -->  0.6 ms
-  
- class SelectionSort --> 111.0 ms
+>      class MergeSort -->  2.2 ms
+>   class CountingSort -->  0.4 ms
+>  class SelectionSort --> 105.6 ms
+
 --------------------------------------------------
 #Test with many unique items:
 Amount elements = 10000 items
-     class MergeSort --> 17.8 ms
-  class CountingSort --> 23.6 ms
- class SelectionSort --> 179.8 ms
+>      class MergeSort --> 29.8 ms
+>   class CountingSort --> 16.2 ms
+>  class SelectionSort --> 197.8 ms
+
 --------------------------------------------------
 #Research of sorting:
 Amount elements = 10000.0 ... 1000000.0 items
