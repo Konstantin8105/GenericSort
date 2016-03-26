@@ -13,7 +13,7 @@ public class ResearchTest {
         System.out.println("\nTest with many same items:");
         List<Integer> array = new ArrayList<>();
         for (int i = 0; i < sizeTest; i++) {
-            array.add(random.nextInt((int)((float)sizeTest*0.01f)));
+            array.add(random.nextInt((int) ((float) sizeTest * 0.01f)));
         }
 
         List<Integer> expert = new ArrayList<>(array);
@@ -30,7 +30,7 @@ public class ResearchTest {
                 };
 
         for (int i = 0; i < sorts.length; i++) {
-            assertNotEquals(expert,array);
+            assertNotEquals(expert, array);
             long start = (new Date()).getTime();
             List<Integer> result = sorts[i].sort(new ArrayList<>(array));
             long end = (new Date()).getTime();
@@ -38,8 +38,8 @@ public class ResearchTest {
             System.out.println
                     (String.format("%60s --> ", sorts[i].getClass().toString())
                             + timeCounting + " ms");
-            assertEquals(expert.size(),result.size());
-            assertEquals(expert,result);
+            assertEquals(expert.size(), result.size());
+            assertEquals(expert, result);
         }
     }
 
@@ -49,7 +49,7 @@ public class ResearchTest {
         System.out.println("\nTest with many unique items:");
         List<Integer> array = new ArrayList<>();
         for (int i = 0; i < sizeTest; i++) {
-            array.add(random.nextInt((int)((float)sizeTest*5f)));
+            array.add(random.nextInt((int) ((float) sizeTest * 5f)));
         }
 
         List<Integer> expert = new ArrayList<>(array);
@@ -66,7 +66,7 @@ public class ResearchTest {
                 };
 
         for (int i = 0; i < sorts.length; i++) {
-            assertNotEquals(expert,array);
+            assertNotEquals(expert, array);
             long start = (new Date()).getTime();
             List<Integer> result = sorts[i].sort(new ArrayList<>(array));
             long end = (new Date()).getTime();
@@ -74,8 +74,8 @@ public class ResearchTest {
             System.out.println
                     (String.format("%60s --> ", sorts[i].getClass().toString())
                             + timeCounting + " ms");
-            assertEquals(expert.size(),result.size());
-            assertEquals(expert,result);
+            assertEquals(expert.size(), result.size());
+            assertEquals(expert, result);
         }
     }
 }
