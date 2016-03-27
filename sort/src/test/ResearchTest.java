@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 
@@ -14,12 +11,12 @@ public class ResearchTest {
     // TODO add file in sorted array
     private static Sort[] getSortClasses() {
         return new Sort[]{
-                //new MergeSort()
-                //,
-                //new CountingSort()
-                //,
-                //new SelectionSort()
-                //,
+                new MergeSort()
+                ,
+                new CountingSort()
+                ,
+                new SelectionSort()
+                ,
                 new BinarySort()
         };
     }
@@ -96,6 +93,19 @@ public class ResearchTest {
         }
     }
 
+    @org.junit.Test
+    public void testTimeUniqueItemsPresort() throws Exception {
+        System.out.println("\n#Test add new item to sorted many unique items :");
+        System.out.println("Amount elements = " + sizeTest + " items");
+        List<Integer> array = getRandomList(sizeTest, true);
+        Collections.sort(array);
+        array.add(random.nextInt(sizeTest));
+        for (Sort sortClass : getSortClasses()) {
+            System.out.print(String.format("> %20s", sortClass.getClass().toString()));
+            double time = getTimeOfSort(array, sortClass);
+            System.out.print(String.format(" --> %4.1f ms\n", time));
+        }
+    }
 
     @org.junit.Test
     public void testResearchUniqueWithDifferentSize() throws Exception {
