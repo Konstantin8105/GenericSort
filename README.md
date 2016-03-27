@@ -48,7 +48,7 @@ Amount elements = 10000 items
 
 --------------------------------------------------
 
-#Test add new item to sorted many unique items :
+##Test add new item to sorted many unique items :
 
 Amount elements = 10000 items
 
@@ -59,6 +59,20 @@ Amount elements = 10000 items
 >class SelectionSort --> 249.2 ms
 
 >class BinarySort -->  5.0 ms
+
+--------------------------------------------------
+
+##Test add new item to sorted many same items :
+
+Amount elements = 10000 items
+
+> class MergeSort --> 40.2 ms
+
+> class CountingSort --> 70.0 ms
+
+> class SelectionSort --> 331.6 ms
+
+> class BinarySort -->  9.8 ms
 
 --------------------------------------------------
 
