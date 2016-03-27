@@ -41,7 +41,10 @@ public class MergeSort<T extends Comparable<T>> implements Sort<T> {
         List<T> flow1 = new ArrayList<>(list.subList(start, middle + 1));
         List<T> flow2 = new ArrayList<>(list.subList(middle + 1, end + 1));
 
-        if (flow1.size() + flow2.size() != end - start + 1)
+        int flow1Size = flow1.size();
+        int flow2Size = flow2.size();
+
+        if (flow1Size + flow2Size != end - start + 1)
             throw new NullPointerException();
 
         int positionFlow1 = 0;
@@ -50,11 +53,11 @@ public class MergeSort<T extends Comparable<T>> implements Sort<T> {
         int position = start;
 
         while (true) {
-            if (positionFlow1 == flow1.size() && positionFlow2 == flow2.size()) {
+            if (positionFlow1 == flow1Size && positionFlow2 == flow2Size) {
                 break;
-            } else if (positionFlow1 == flow1.size()) {
+            } else if (positionFlow1 == flow1Size) {
                 list.set(position, flow2.get(positionFlow2++));
-            } else if (positionFlow2 == flow2.size()) {
+            } else if (positionFlow2 == flow2Size) {
                 list.set(position, flow1.get(positionFlow1++));
             } else if (flow1.get(positionFlow1).compareTo(flow2.get(positionFlow2)) > 0) {
                 list.set(position, flow2.get(positionFlow2++));
