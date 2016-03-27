@@ -8,7 +8,7 @@ import static org.junit.Assert.assertNotEquals;
 
 public class BinarySearchInMiddleItemTest {
 
-    private List<Integer> list = Arrays.asList(0,2,4,6,8,10,12);
+    private final List<Integer> list = Arrays.asList(0,2,4,6,8,10,12);
 
 
     @org.junit.Before

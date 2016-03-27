@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 public class ResearchTest {
 
-    private static Random random = new Random();
-    int sizeTest = 10_000;
+    private final static Random random = new Random();
+    private final int sizeTest = 10_000;
 
     private static Sort[] getSortClasses() {
         return new Sort[]{

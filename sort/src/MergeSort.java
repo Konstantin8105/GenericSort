@@ -24,7 +24,7 @@ public class MergeSort<T extends Comparable<T>> implements Sort<T> {
         if (end - start == 0) {
             return;
         }
-        if (end - start == 1) {;
+        if (end - start == 1) {
             if (list.get(start).compareTo(list.get(end)) > 0) {
                 swap(list, start, end);
             }

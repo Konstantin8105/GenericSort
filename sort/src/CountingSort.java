@@ -9,12 +9,12 @@ public class CountingSort<T extends Comparable<T>> implements Sort<T> {
             throw new IndexOutOfBoundsException();
 
         Map<T, Integer> map = new HashMap<>();
-        for (int i = 0; i < list.size(); i++) {
-            Integer amountT = map.get(list.get(i));
+        for (T item : list) {
+            Integer amountT = map.get(item);
             if (amountT == null) {
-                map.put(list.get(i), 1);
+                map.put(item, 1);
             } else {
-                map.replace(list.get(i), amountT, amountT + 1);
+                map.replace(item, amountT, amountT + 1);
             }
         }
 
@@ -25,13 +25,13 @@ public class CountingSort<T extends Comparable<T>> implements Sort<T> {
             return sortListT;
 
         List<T> result = new ArrayList<>();
-        for (int i = 0; i < sortListT.size(); i++) {
-            Integer size = map.get(sortListT.get(i));
-            if(size == null){
+        for (T item : sortListT) {
+            Integer size = map.get(item);
+            if (size == null) {
                 throw new NullPointerException();
             }
             for (int j = 0; j < size; j++) {
-                result.add(sortListT.get(i));
+                result.add(item);
             }
         }
         return result;
