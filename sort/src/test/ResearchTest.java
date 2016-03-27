@@ -14,12 +14,12 @@ public class ResearchTest {
     // TODO add file in sorted array
     private static Sort[] getSortClasses() {
         return new Sort[]{
-                new MergeSort()
-                ,
-                new CountingSort()
-                ,
-                new SelectionSort()
-                ,
+                //new MergeSort()
+                //,
+                //new CountingSort()
+                //,
+                //new SelectionSort()
+                //,
                 new BinarySort()
         };
     }
@@ -116,7 +116,8 @@ public class ResearchTest {
         System.out.println("Result of research");
         for (Sort sortClass : getSortClasses()) {
             if(sortClass instanceof SelectionSort ||
-                    sortClass instanceof BinarySort){
+                    sortClass instanceof BinarySort
+                    ){
                 continue;
             }
             System.out.println(String.format("%20s", sortClass.getClass().toString()));
