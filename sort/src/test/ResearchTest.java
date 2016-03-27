@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 public class ResearchTest {
 
     private final static Random random = new Random();
-    private final int SIZE_TEST_ELEMENTS = 10_000;
+    private final int SIZE_TEST_ELEMENTS = 10;//10_000;
 
     private static Sort[] getSortClasses() {
         return new Sort[]{
@@ -16,6 +16,8 @@ public class ResearchTest {
                 new SelectionSort()
                 ,
                 new BinarySort()
+                ,
+                new InsertionSort()
         };
     }
 
@@ -61,10 +63,14 @@ public class ResearchTest {
         System.out.println("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
         List<Integer> array = getRandomList(SIZE_TEST_ELEMENTS, true);
 
+        List<Integer> expected  = new ArrayList<>(array);
+        Collections.sort(expected);
+
         for (Sort sortClass : getSortClasses()) {
             System.out.print(String.format("> %s", sortClass.getClass().toString()));
             List<Integer> result = sortClass.sort(array);
             assertEquals(array.size(), result.size());
+            assertEquals(expected,result);
             System.out.print(" --> OK\n");
         }
     }

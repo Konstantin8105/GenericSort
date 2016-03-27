@@ -19,13 +19,13 @@ public class BinarySort<T extends Comparable<T>> implements Sort<T> {
         BinarySearchInMiddleItem<T> binary = new BinarySearchInMiddleItem<>();
         for (int i = 1; i < list.size(); i++) {
             T element = list.get(i);
-            int position = binary.search(list, element);
+            int position = binary.search(output, element);
             if (position == -1) {
                 output.add(0, element);
             } else if (position == list.size() || position > output.size() - 1) {
                 output.add(element);
             } else {
-                output.add(position, element);
+                output.add(position+1, element);
             }
         }
         return output;
