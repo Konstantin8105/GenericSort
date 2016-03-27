@@ -99,7 +99,21 @@ public class ResearchTest {
         Collections.sort(array);
         array.add(random.nextInt(sizeTest));
         for (Sort sortClass : getSortClasses()) {
-            System.out.print(String.format("> %20s", sortClass.getClass().toString()));
+            System.out.print(String.format("> %s", sortClass.getClass().toString()));
+            double time = getTimeOfSort(array, sortClass);
+            System.out.print(String.format(" --> %4.1f ms\n", time));
+        }
+    }
+
+    @org.junit.Test
+    public void testTimeNotUniqueItemsPresort() throws Exception {
+        System.out.println("\n#Test add new item to sorted many same items :");
+        System.out.println("Amount elements = " + sizeTest + " items");
+        List<Integer> array = getRandomList(sizeTest, true);
+        Collections.sort(array);
+        array.add(random.nextInt(sizeTest));
+        for (Sort sortClass : getSortClasses()) {
+            System.out.print(String.format("> %s", sortClass.getClass().toString()));
             double time = getTimeOfSort(array, sortClass);
             System.out.print(String.format(" --> %4.1f ms\n", time));
         }
