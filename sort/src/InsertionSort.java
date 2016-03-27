@@ -17,21 +17,13 @@ public class InsertionSort<T extends Comparable<T>> implements Sort<T> {
 
         List<T> output = new ArrayList<>(list);
 
-        //System.out.println("\n\nlist = " + list);
-
         int position = 1;
         for (int i = position; i < output.size(); i++) {
-
-            //System.out.println("output = " + output.subList(0, position) + ":");
-
             int presentPosition = position;
             while (presentPosition > 0) {
                 T left = output.get(presentPosition - 1);
                 T right = output.get(presentPosition);
-                //System.out.println("left = "+left);
-                //System.out.println("right = "+right);
                 if(left.compareTo(right) > 0) {
-                    //System.out.println("swap :" + left + ":" + right);
                     swap(output, presentPosition, presentPosition - 1);
                 } else {
                     presentPosition = -1;
@@ -40,7 +32,6 @@ public class InsertionSort<T extends Comparable<T>> implements Sort<T> {
             }
             position++;
         }
-
         return output;
     }
 
@@ -57,7 +48,6 @@ public class InsertionSort<T extends Comparable<T>> implements Sort<T> {
         Collections.sort(expected);
 
         InsertionSort<Integer> sort = new InsertionSort<>();
-
         List<Integer> result = sort.sort(array);
 
         assertEquals(array.size(), result.size());
