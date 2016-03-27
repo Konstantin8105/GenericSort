@@ -7,8 +7,6 @@ public class ResearchTest {
     private static Random random = new Random();
     int sizeTest = 10_000;
 
-    // TODO create good research
-    // TODO add file in sorted array
     private static Sort[] getSortClasses() {
         return new Sort[]{
                 new MergeSort()
