@@ -21,7 +21,7 @@ public class BinarySearchInMiddleItem<T extends Comparable<T>> {
         int middle;
         int high = list.size() - 1;
 
-        while (low < high) {
+        while (low <= high) {
             middle = (high + low) >>> 1;
 
             if (list.get(low).compareTo(find) == 0)
