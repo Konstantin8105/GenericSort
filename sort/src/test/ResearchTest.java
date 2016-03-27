@@ -60,7 +60,7 @@ public class ResearchTest {
         List<Integer> array = getRandomList(sizeTest, true);
 
         for (Sort sortClass : getSortClasses()) {
-            System.out.print(String.format("> %20s", sortClass.getClass().toString()));
+            System.out.print(String.format("> %s", sortClass.getClass().toString()));
             List<Integer> result = sortClass.sort(array);
             assertEquals(array.size(), result.size());
             System.out.print(" --> OK\n");
@@ -73,7 +73,7 @@ public class ResearchTest {
         System.out.println("Amount elements = " + sizeTest + " items");
         List<Integer> array = getRandomList(sizeTest, false);
         for (Sort sortClass : getSortClasses()) {
-            System.out.print(String.format("> %20s", sortClass.getClass().toString()));
+            System.out.print(String.format("> %s", sortClass.getClass().toString()));
             double time = getTimeOfSort(array, sortClass);
             System.out.print(String.format(" --> %4.1f ms\n", time));
         }
@@ -85,7 +85,7 @@ public class ResearchTest {
         System.out.println("Amount elements = " + sizeTest + " items");
         List<Integer> array = getRandomList(sizeTest, true);
         for (Sort sortClass : getSortClasses()) {
-            System.out.print(String.format("> %20s", sortClass.getClass().toString()));
+            System.out.print(String.format("> %s", sortClass.getClass().toString()));
             double time = getTimeOfSort(array, sortClass);
             System.out.print(String.format(" --> %4.1f ms\n", time));
         }
@@ -128,7 +128,7 @@ public class ResearchTest {
                     ){
                 continue;
             }
-            System.out.println(String.format("%20s", sortClass.getClass().toString()));
+            System.out.println(String.format("%s", sortClass.getClass().toString()));
             System.out.print(String.format("%10s","Amount:"));
             for (int i = minExponent; i <= maxExponent; i++) {
                 System.out.print(String.format("   10^%d |", i));
