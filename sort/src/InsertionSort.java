@@ -17,17 +17,26 @@ public class InsertionSort<T extends Comparable<T>> implements Sort<T> {
 
         List<T> output = new ArrayList<>(list);
 
-        System.out.println("\n\nlist = " + list);
+        //System.out.println("\n\nlist = " + list);
 
         int position = 1;
         for (int i = position; i < output.size(); i++) {
 
-            System.out.println("output = " + output.subList(0, position) + ":");
+            //System.out.println("output = " + output.subList(0, position) + ":");
 
             int presentPosition = position;
-            while (output.get(presentPosition - 1).compareTo(output.get(presentPosition)) > 0) {
-                System.out.println("swap :" + output.get(presentPosition) + ":" + output.get(presentPosition - 1));
-                swap(output, presentPosition, presentPosition - 1);
+            while (presentPosition > 0) {
+                T left = output.get(presentPosition - 1);
+                T right = output.get(presentPosition);
+                //System.out.println("left = "+left);
+                //System.out.println("right = "+right);
+                if(left.compareTo(right) > 0) {
+                    //System.out.println("swap :" + left + ":" + right);
+                    swap(output, presentPosition, presentPosition - 1);
+                } else {
+                    presentPosition = -1;
+                }
+                presentPosition--;
             }
             position++;
         }
@@ -42,7 +51,7 @@ public class InsertionSort<T extends Comparable<T>> implements Sort<T> {
     }
 
     public static void main(String[] args) {
-        List<Integer> array = Arrays.asList(1, 2, 3, 4, 5, 0, 6, 7, 8);
+        List<Integer> array = Arrays.asList(1, 5, 0, 6, 7, 8);
 
         List<Integer> expected = new ArrayList<>(array);
         Collections.sort(expected);

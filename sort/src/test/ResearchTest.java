@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 public class ResearchTest {
 
     private final static Random random = new Random();
-    private final int SIZE_TEST_ELEMENTS = 10;//10_000;
+    private final int SIZE_TEST_ELEMENTS = 10_000;
 
     private static Sort[] getSortClasses() {
         return new Sort[]{
@@ -146,7 +146,8 @@ public class ResearchTest {
         System.out.println("Result of research");
         for (Sort sortClass : getSortClasses()) {
             if(sortClass instanceof SelectionSort ||
-                    sortClass instanceof BinarySort
+                    sortClass instanceof BinarySort ||
+                    sortClass instanceof InsertionSort
                     ){
                 continue;
             }
