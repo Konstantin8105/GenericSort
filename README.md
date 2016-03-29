@@ -86,6 +86,22 @@ Amount elements = 10000 items
 
 --------------------------------------------------
 
+##Test with many unique items on invert direction:
+
+Amount elements = 10000 items
+
+> class MergeSort --> 14.4 ms
+
+> class CountingSort --> 31.2 ms
+
+> class SelectionSort --> 300.4 ms
+
+> class BinarySort -->  5.0 ms
+
+> class InsertionSort -->  1.6 ms
+
+--------------------------------------------------
+
 ##Research of sorting:
 
 Amount elements = 10000.0 ... 1000000.0 items

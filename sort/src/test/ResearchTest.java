@@ -99,6 +99,29 @@ public class ResearchTest {
         }
     }
 
+
+
+    @org.junit.Test
+    public void testTimeUniqueItems_InvertDirection() throws Exception {
+        System.out.println("\n#Test with many unique items on invert direction:");
+        System.out.println("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
+        List<Integer> array = getRandomList(SIZE_TEST_ELEMENTS, true);
+        Collections.sort(array);
+        List<Integer> input = new ArrayList<>();
+        for (int i = 0; i < array.size(); i++) {
+            input.add(array.get(i));
+        }
+        for (Sort sortClass : getSortClasses()) {
+            System.out.print(String.format("> %s", sortClass.getClass().toString()));
+            double time = getTimeOfSort(input, sortClass);
+            System.out.print(String.format(" --> %4.1f ms\n", time));
+        }
+    }
+
+
+
+
+
     @org.junit.Test
     public void testTimeUniqueItemsPresort() throws Exception {
         System.out.println("\n#Test add new item to sorted many unique items :");
