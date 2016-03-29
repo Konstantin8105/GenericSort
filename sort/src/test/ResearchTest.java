@@ -99,8 +99,6 @@ public class ResearchTest {
         }
     }
 
-
-
     @org.junit.Test
     public void testTimeUniqueItems_InvertDirection() throws Exception {
         System.out.println("\n#Test with many unique items on invert direction:");
@@ -117,10 +115,6 @@ public class ResearchTest {
             System.out.print(String.format(" --> %4.1f ms\n", time));
         }
     }
-
-
-
-
 
     @org.junit.Test
     public void testTimeUniqueItemsPresort() throws Exception {
@@ -143,6 +137,35 @@ public class ResearchTest {
         List<Integer> array = getRandomList(SIZE_TEST_ELEMENTS, true);
         Collections.sort(array);
         array.add(random.nextInt(SIZE_TEST_ELEMENTS));
+        for (Sort sortClass : getSortClasses()) {
+            System.out.print(String.format("> %s", sortClass.getClass().toString()));
+            double time = getTimeOfSort(array, sortClass);
+            System.out.print(String.format(" --> %4.1f ms\n", time));
+        }
+    }
+
+
+    @org.junit.Test
+    public void testTimeUniqueItemsPresort2() throws Exception {
+        System.out.println("\n#Test add new item to sorted many unique items. variant 2:");
+        System.out.println("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
+        List<Integer> array = getRandomList(SIZE_TEST_ELEMENTS, true);
+        Collections.sort(array);
+        array.add(0,random.nextInt(SIZE_TEST_ELEMENTS));
+        for (Sort sortClass : getSortClasses()) {
+            System.out.print(String.format("> %s", sortClass.getClass().toString()));
+            double time = getTimeOfSort(array, sortClass);
+            System.out.print(String.format(" --> %4.1f ms\n", time));
+        }
+    }
+
+    @org.junit.Test
+    public void testTimeNotUniqueItemsPresort2() throws Exception {
+        System.out.println("\n#Test add new item to sorted many same items. variant 2 :");
+        System.out.println("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
+        List<Integer> array = getRandomList(SIZE_TEST_ELEMENTS, true);
+        Collections.sort(array);
+        array.add(0,random.nextInt(SIZE_TEST_ELEMENTS));
         for (Sort sortClass : getSortClasses()) {
             System.out.print(String.format("> %s", sortClass.getClass().toString()));
             double time = getTimeOfSort(array, sortClass);
