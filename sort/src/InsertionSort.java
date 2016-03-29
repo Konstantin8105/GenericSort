@@ -23,7 +23,7 @@ public class InsertionSort<T extends Comparable<T>> implements Sort<T> {
             while (presentPosition > 0) {
                 T left = output.get(presentPosition - 1);
                 T right = output.get(presentPosition);
-                if(left.compareTo(right) > 0) {
+                if(left.compareTo(right) >= 0) {
                     swap(output, presentPosition, presentPosition - 1);
                 } else {
                     presentPosition = -1;
