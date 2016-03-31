@@ -1,3 +1,5 @@
+package sort;
+
 import java.util.*;
 
 public class CountingSort<T extends Comparable<T>> implements Sort<T> {

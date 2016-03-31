@@ -1,3 +1,5 @@
+package sort;
+
 import search.BinarySearchInMiddleItem;
 
 import java.util.ArrayList;

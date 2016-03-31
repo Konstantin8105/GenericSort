@@ -1,3 +1,5 @@
+import sort.*;
+
 import java.util.*;
 
 import static org.junit.Assert.assertEquals;
