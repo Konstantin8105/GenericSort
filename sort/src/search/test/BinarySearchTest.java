@@ -1,4 +1,5 @@
 import search.BinarySearch;
+import sort.MergeSort;
 
 import java.util.Arrays;
 import java.util.List;
