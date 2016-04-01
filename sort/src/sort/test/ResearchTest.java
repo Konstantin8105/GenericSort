@@ -19,6 +19,8 @@ public class ResearchTest {
                 new BinarySort()
                 ,
                 new InsertionSort()
+                ,
+                new SquareSort<>()
         };
     }
 

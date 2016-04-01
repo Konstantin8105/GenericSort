@@ -13,13 +13,15 @@ public class ResearchSort {
         return new Sort[]{
                 new MergeSort()
                 ,
-                new CountingSort()
-                ,
+                //new CountingSort()
+                //,
+                new SquareSort<>()
+                //,
                 //new SelectionSort()
                 //,
-                new BinarySort()
-                ,
-                new InsertionSort()
+                //new BinarySort()
+                //,
+                //new InsertionSort()
         };
     }
 
@@ -41,7 +43,7 @@ public class ResearchSort {
     }
 
     @SuppressWarnings("unchecked")
-    private <T> long getTimeOfSort(List<T> input, Sort sortClass) {
+    private <T> double getTimeOfSort(List<T> input, Sort sortClass) {
         List<Long> timePeriod = new ArrayList<>();
         int amountTest = 5;
         for (int i = 0; i < amountTest; i++) {
@@ -50,11 +52,11 @@ public class ResearchSort {
             long end = (new Date()).getTime();
             timePeriod.add(end - start);
         }
-        long minTime = 0;
+        long minTime = timePeriod.get(0);
         for (Long time : timePeriod) {
             minTime = Math.min(minTime,time);
         }
-        return minTime;
+        return (double) minTime;
     }
 
 
