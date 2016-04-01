@@ -27,7 +27,10 @@ public class ResearchTest {
     public void testCorrectResult() throws Exception {
         System.out.println("\n#Test. Checking of correct result:");
         System.out.println("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
-        List<Integer> array = getRandomList(SIZE_TEST_ELEMENTS, true);
+        List<Integer> array = new ArrayList<>();
+        for (int i = 0; i < SIZE_TEST_ELEMENTS; i++) {
+            array.add(SIZE_TEST_ELEMENTS/2 - i*i);
+        }
 
         List<Integer> expected  = new ArrayList<>(array);
         Collections.sort(expected);
