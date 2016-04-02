@@ -46,8 +46,8 @@ public class MergeSort<T extends Comparable<T>> implements Sort<T> {
         int flow1Size = flow1.size();
         int flow2Size = flow2.size();
 
-        if (flow1Size + flow2Size != end - start + 1)
-            throw new NullPointerException();
+        //if (flow1Size + flow2Size != end - start + 1)
+        //    throw new NullPointerException();
 
         int positionFlow1 = 0;
         int positionFlow2 = 0;
