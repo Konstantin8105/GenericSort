@@ -161,7 +161,7 @@ public class ResearchSort {
     @org.junit.Test
     public void testResearchUniqueWithDifferentSize() throws Exception {
         System.out.println("\n#Research of sorting:");
-        int minExponent = 4;
+        int minExponent = 1;
         int maxExponent = 6;
         System.out.println("Amount elements = "
                 + Math.pow(10, minExponent)

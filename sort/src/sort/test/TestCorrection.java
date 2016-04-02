@@ -4,7 +4,7 @@ import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 
-public class ResearchTest {
+public class TestCorrection {
 
     private final int SIZE_TEST_ELEMENTS = 1_000;
 
@@ -14,13 +14,13 @@ public class ResearchTest {
                 ,
                 new CountingSort()
                 ,
-                //new SelectionSort()
-                //,
+                new SelectionSort()
+                ,
                 new BinarySort()
                 ,
                 new InsertionSort()
                 ,
-                new SquareSort<>()
+                new SquareSort()
         };
     }
 
