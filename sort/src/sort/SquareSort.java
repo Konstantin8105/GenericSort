@@ -15,23 +15,39 @@ public class SquareSort<T extends Comparable<T>> implements Sort<T> {
         if (list.size() == 0)
             throw new IndexOutOfBoundsException();
 
-        List<T> items = new ArrayList<>(list);
+        return squareSort(new ArrayList<>(list));
+    }
 
-        int amountKeys = (int) Math.max(Math.sqrt(list.size()), 1);
+    private List<T> squareSort(ArrayList<T> items) {
+        if (items.size() == 1)
+            return items;
+        if (items.size() == 2) {
+            if(items.get(0).compareTo(items.get(1)) > 0){
+                swap(items,0,1);
+            }
+            return items;
+        }
+        //if(items.size() < 32){
+        //    BinarySort<T> sort2 = new BinarySort<>();
+        //    return sort2.sort(items);
+        //}
+
+
+        int amountKeys = (int) Math.max(Math.sqrt(items.size()), 1);
 
         List<T> keys = new ArrayList<>();
         for (int i = amountKeys; i >= 0; i--) {
             int positionInArray = i * amountKeys;
-            if (positionInArray < list.size()) {
-                keys.add(list.get(positionInArray));
+            if (positionInArray < items.size()) {
+                keys.add(items.get(positionInArray));
                 items.remove(positionInArray);
             }
         }
 
         //sort
 
-        MergeSort<T> mergeSort = new MergeSort<>();
-        List<T> sortedKeys = mergeSort.sort(keys);
+        SquareSort<T> sort = new SquareSort<>();
+        List<T> sortedKeys = sort.sort(keys);
 
         //sort by array
 
@@ -53,7 +69,7 @@ public class SquareSort<T extends Comparable<T>> implements Sort<T> {
 
         for (int i = 0; i < arrays.length; i++) {
             if (arrays[i].size() > 0) {
-                arrays[i] = mergeSort.sort(arrays[i]);
+                arrays[i] = sort.sort(arrays[i]);
             }
         }
 
@@ -67,6 +83,12 @@ public class SquareSort<T extends Comparable<T>> implements Sort<T> {
         }
 
         return out;
+    }
+
+    private void swap(List<T> list, int i, int j) {
+        T temp = list.get(i);
+        list.set(i, list.get(j));
+        list.set(j, temp);
     }
 
     public static void main(String[] args) {
