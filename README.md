@@ -59,9 +59,13 @@ Amount elements = 10000 items
 Amount elements = 10000 items
 
 > class MergeSort -->  2.8 ms
+
 > class CountingSort -->  4.8 ms
+
 > class SelectionSort --> 150.0 ms
+
 > class BinarySort -->  0.2 ms
+
 > class InsertionSort -->  0.2 ms
 
 --------------------------------------------------

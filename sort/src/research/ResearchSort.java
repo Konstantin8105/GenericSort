@@ -5,7 +5,7 @@ import sort.*;
 import java.util.*;
 
 public class ResearchSort {
-    private final int SIZE_TEST_ELEMENTS = 100_000;
+    private final int SIZE_TEST_ELEMENTS = 10_000;
 
     private final static Random random = new Random();
 
