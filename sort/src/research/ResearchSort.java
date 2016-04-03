@@ -11,11 +11,13 @@ public class ResearchSort {
 
     private static Sort[] getSortClasses() {
         return new Sort[]{
-                new MergeSort()
+                new MergeSortIndex<>()
                 ,
+                new MergeSort()
+                //,
                 //new CountingSort()
                 //,
-                new SquareSort<>()
+                //new SquareSort<>()
                 //,
                 //new SelectionSort()
                 //,
@@ -54,7 +56,7 @@ public class ResearchSort {
         }
         long minTime = timePeriod.get(0);
         for (Long time : timePeriod) {
-            minTime = Math.min(minTime,time);
+            minTime = Math.min(minTime, time);
         }
         return (double) minTime;
     }
@@ -77,6 +79,27 @@ public class ResearchSort {
         System.out.println("\n#Test with many unique items:");
         System.out.println("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
         List<Integer> array = getRandomList(SIZE_TEST_ELEMENTS, true);
+        for (Sort sortClass : getSortClasses()) {
+            System.out.print(String.format("> %s", sortClass.getClass().toString()));
+            double time = getTimeOfSort(array, sortClass);
+            System.out.print(String.format(" --> %4.1f ms\n", time));
+        }
+    }
+
+
+    @org.junit.Test
+    public void testTimeUniqueStrings() throws Exception {
+        System.out.println("\n#Test with many unique strings:");
+        System.out.println("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
+        List<String> array = new ArrayList<>();
+        for (int i = 0; i < SIZE_TEST_ELEMENTS; i++) {
+            array.add(String.format("number%7.10f", random.nextDouble())
+                    +
+                    String.format("and%7.10fabc", random.nextDouble())
+                    +
+                    String.format("%10d", random.nextLong())
+            );
+        }
         for (Sort sortClass : getSortClasses()) {
             System.out.print(String.format("> %s", sortClass.getClass().toString()));
             double time = getTimeOfSort(array, sortClass);
@@ -136,7 +159,7 @@ public class ResearchSort {
         System.out.println("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
         List<Integer> array = getRandomList(SIZE_TEST_ELEMENTS, true);
         Collections.sort(array);
-        array.add(0,random.nextInt(SIZE_TEST_ELEMENTS));
+        array.add(0, random.nextInt(SIZE_TEST_ELEMENTS));
         for (Sort sortClass : getSortClasses()) {
             System.out.print(String.format("> %s", sortClass.getClass().toString()));
             double time = getTimeOfSort(array, sortClass);
@@ -150,7 +173,7 @@ public class ResearchSort {
         System.out.println("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
         List<Integer> array = getRandomList(SIZE_TEST_ELEMENTS, true);
         Collections.sort(array);
-        array.add(0,random.nextInt(SIZE_TEST_ELEMENTS));
+        array.add(0, random.nextInt(SIZE_TEST_ELEMENTS));
         for (Sort sortClass : getSortClasses()) {
             System.out.print(String.format("> %s", sortClass.getClass().toString()));
             double time = getTimeOfSort(array, sortClass);
@@ -162,7 +185,7 @@ public class ResearchSort {
     public void testResearchUniqueWithDifferentSize() throws Exception {
         System.out.println("\n#Research of sorting:");
         int minExponent = 1;
-        int maxExponent = 6;
+        int maxExponent = 7;
         System.out.println("Amount elements = "
                 + Math.pow(10, minExponent)
                 + " ... "
@@ -170,25 +193,25 @@ public class ResearchSort {
                 + " items");
         List<List<Integer>> matrix = new ArrayList<>();
         for (int i = minExponent; i <= maxExponent; i++) {
-            int amountItems = (int)Math.pow(10d,i);
+            int amountItems = (int) Math.pow(10d, i);
             matrix.add(getRandomList(amountItems, true));
         }
 
         System.out.println("Result of research");
         for (Sort sortClass : getSortClasses()) {
-            if(sortClass instanceof SelectionSort ||
+            if (sortClass instanceof SelectionSort ||
                     sortClass instanceof BinarySort ||
                     sortClass instanceof InsertionSort
-                    ){
+                    ) {
                 continue;
             }
             System.out.println(String.format("%s", sortClass.getClass().toString()));
-            System.out.print(String.format("%10s","Amount:"));
+            System.out.print(String.format("%10s", "Amount:"));
             for (int i = minExponent; i <= maxExponent; i++) {
                 System.out.print(String.format("   10^%d |", i));
             }
             System.out.println();
-            System.out.print(String.format("%10s","Time(ms):"));
+            System.out.print(String.format("%10s", "Time(ms):"));
             for (int i = 0; i <= maxExponent - minExponent; i++) {
                 double time = getTimeOfSort(matrix.get(i), sortClass);
                 System.out.print(String.format("%7.1f |", time));

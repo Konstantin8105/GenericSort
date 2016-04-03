@@ -10,6 +10,8 @@ public class TestCorrection {
 
     private static Sort[] getSortClasses() {
         return new Sort[]{
+                new MergeSortIndex<>()
+                ,
                 new MergeSort()
                 ,
                 new CountingSort()
