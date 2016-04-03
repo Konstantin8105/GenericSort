@@ -29,8 +29,8 @@ public class TestCorrection {
     @SuppressWarnings("unchecked")
     @org.junit.Test
     public void testCorrectResult() throws Exception {
-        System.out.println("\n#Test. Checking of correct result:");
-        System.out.println("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
+        System.out.println("\n##Test. Checking of correct result:\n");
+        System.out.println("Amount elements = " + SIZE_TEST_ELEMENTS + " items\n");
         List<Integer> array = new ArrayList<>();
         for (int i = 0; i < SIZE_TEST_ELEMENTS; i++) {
             array.add(SIZE_TEST_ELEMENTS/2 - i*i);
@@ -44,7 +44,7 @@ public class TestCorrection {
             List<Integer> result = sortClass.sort(array);
             assertEquals(array.size(), result.size());
             assertEquals(expected,result);
-            System.out.print(" --> OK\n");
+            System.out.println(" --> OK\n");
         }
     }
 }

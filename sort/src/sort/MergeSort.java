@@ -21,6 +21,8 @@ public class MergeSort<T extends Comparable<T>> implements Sort<T> {
     }
 
     private void mergeSort(List<T> list, int start, int end) {
+        if (end - start < 0)
+            throw new NullPointerException();
         if (end - start == 0) {
             return;
         }

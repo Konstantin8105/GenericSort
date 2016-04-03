@@ -5,7 +5,7 @@ import sort.*;
 import java.util.*;
 
 public class ResearchSort {
-    private final int SIZE_TEST_ELEMENTS = 10_000;
+    private final int SIZE_TEST_ELEMENTS = 100_000;
 
     private final static Random random = new Random();
 
@@ -25,6 +25,19 @@ public class ResearchSort {
                 //,
                 //new InsertionSort()
         };
+    }
+
+    private void header(String header) {
+        System.out.println("---------------------------------------\n");
+        System.out.println("## " + header + "\n");
+    }
+
+    private void info(String info) {
+        System.out.println(info + "\n");
+    }
+
+    private void line(String className, double time){
+        System.out.println("> "+className+" --> "+String.format("%.1f",time)+" ms\n");
     }
 
     private List<Integer> getRandomList(int amountElements, boolean isManyUnique) {
@@ -64,33 +77,43 @@ public class ResearchSort {
 
     @org.junit.Test
     public void testTimeNotUniqueItems() throws Exception {
-        System.out.println("\n#Test with many same items:");
-        System.out.println("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
+        header("Test with many same items:");
+        info("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
         List<Integer> array = getRandomList(SIZE_TEST_ELEMENTS, false);
+
+        long start = (new Date()).getTime();
+        Collections.sort(new ArrayList<>(array));
+        long end = (new Date()).getTime();
+        line("Collections.sort()",(double) (end - start));
+
         for (Sort sortClass : getSortClasses()) {
-            System.out.print(String.format("> %s", sortClass.getClass().toString()));
             double time = getTimeOfSort(array, sortClass);
-            System.out.print(String.format(" --> %4.1f ms\n", time));
+            line(sortClass.getClass().toString(),time);
         }
     }
 
     @org.junit.Test
     public void testTimeUniqueItems() throws Exception {
-        System.out.println("\n#Test with many unique items:");
-        System.out.println("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
+        header("Test with many unique items:");
+        info("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
         List<Integer> array = getRandomList(SIZE_TEST_ELEMENTS, true);
+
+        long start = (new Date()).getTime();
+        Collections.sort(new ArrayList<>(array));
+        long end = (new Date()).getTime();
+        line("Collections.sort()",(double) (end - start));
+
         for (Sort sortClass : getSortClasses()) {
-            System.out.print(String.format("> %s", sortClass.getClass().toString()));
             double time = getTimeOfSort(array, sortClass);
-            System.out.print(String.format(" --> %4.1f ms\n", time));
+            line(sortClass.getClass().toString(),time);
         }
     }
 
 
     @org.junit.Test
     public void testTimeUniqueStrings() throws Exception {
-        System.out.println("\n#Test with many unique strings:");
-        System.out.println("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
+        header("Test with many unique strings:");
+        info("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
         List<String> array = new ArrayList<>();
         for (int i = 0; i < SIZE_TEST_ELEMENTS; i++) {
             array.add(String.format("number%7.10f", random.nextDouble())
@@ -100,104 +123,175 @@ public class ResearchSort {
                     String.format("%10d", random.nextLong())
             );
         }
+
+        long start = (new Date()).getTime();
+        Collections.sort(new ArrayList<>(array));
+        long end = (new Date()).getTime();
+        line("Collections.sort()",(double) (end - start));
+
         for (Sort sortClass : getSortClasses()) {
-            System.out.print(String.format("> %s", sortClass.getClass().toString()));
             double time = getTimeOfSort(array, sortClass);
-            System.out.print(String.format(" --> %4.1f ms\n", time));
+            line(sortClass.getClass().toString(),time);
         }
     }
 
     @org.junit.Test
     public void testTimeUniqueItems_InvertDirection() throws Exception {
-        System.out.println("\n#Test with many unique items on invert direction:");
-        System.out.println("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
+        header("Test with many unique items on invert direction:");
+        info("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
         List<Integer> array = getRandomList(SIZE_TEST_ELEMENTS, true);
         Collections.sort(array);
         List<Integer> input = new ArrayList<>();
         for (int i = 0; i < array.size(); i++) {
             input.add(array.get(i));
         }
+
+        long start = (new Date()).getTime();
+        Collections.sort(new ArrayList<>(array));
+        long end = (new Date()).getTime();
+        line("Collections.sort()",(double) (end - start));
+
         for (Sort sortClass : getSortClasses()) {
-            System.out.print(String.format("> %s", sortClass.getClass().toString()));
             double time = getTimeOfSort(input, sortClass);
-            System.out.print(String.format(" --> %4.1f ms\n", time));
+            line(sortClass.getClass().toString(),time);
         }
     }
 
     @org.junit.Test
     public void testTimeUniqueItemsPresort() throws Exception {
-        System.out.println("\n#Test add new item to sorted many unique items :");
-        System.out.println("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
+        header("Test add new item to sorted many unique items :");
+        info("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
         List<Integer> array = getRandomList(SIZE_TEST_ELEMENTS, true);
         Collections.sort(array);
         array.add(random.nextInt(SIZE_TEST_ELEMENTS));
+
+        long start = (new Date()).getTime();
+        Collections.sort(new ArrayList<>(array));
+        long end = (new Date()).getTime();
+        line("Collections.sort()",(double) (end - start));
+
         for (Sort sortClass : getSortClasses()) {
-            System.out.print(String.format("> %s", sortClass.getClass().toString()));
             double time = getTimeOfSort(array, sortClass);
-            System.out.print(String.format(" --> %4.1f ms\n", time));
+            line(sortClass.getClass().toString(),time);
         }
     }
 
     @org.junit.Test
     public void testTimeNotUniqueItemsPresort() throws Exception {
-        System.out.println("\n#Test add new item to sorted many same items :");
-        System.out.println("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
+        header("Test add new item to sorted many same items :");
+        info("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
         List<Integer> array = getRandomList(SIZE_TEST_ELEMENTS, true);
         Collections.sort(array);
+
+        long start = (new Date()).getTime();
+        Collections.sort(new ArrayList<>(array));
+        long end = (new Date()).getTime();
+        line("Collections.sort()",(double) (end - start));
+
         array.add(random.nextInt(SIZE_TEST_ELEMENTS));
         for (Sort sortClass : getSortClasses()) {
-            System.out.print(String.format("> %s", sortClass.getClass().toString()));
             double time = getTimeOfSort(array, sortClass);
-            System.out.print(String.format(" --> %4.1f ms\n", time));
+            line(sortClass.getClass().toString(),time);
         }
     }
 
 
     @org.junit.Test
     public void testTimeUniqueItemsPresort2() throws Exception {
-        System.out.println("\n#Test add new item to sorted many unique items. variant 2:");
-        System.out.println("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
+        header("Test add new item to sorted many unique items. variant 2:");
+        info("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
         List<Integer> array = getRandomList(SIZE_TEST_ELEMENTS, true);
         Collections.sort(array);
         array.add(0, random.nextInt(SIZE_TEST_ELEMENTS));
+
+        long start = (new Date()).getTime();
+        Collections.sort(new ArrayList<>(array));
+        long end = (new Date()).getTime();
+        line("Collections.sort()",(double) (end - start));
+
         for (Sort sortClass : getSortClasses()) {
-            System.out.print(String.format("> %s", sortClass.getClass().toString()));
             double time = getTimeOfSort(array, sortClass);
-            System.out.print(String.format(" --> %4.1f ms\n", time));
+            line(sortClass.getClass().toString(),time);
         }
     }
 
     @org.junit.Test
     public void testTimeNotUniqueItemsPresort2() throws Exception {
-        System.out.println("\n#Test add new item to sorted many same items. variant 2 :");
-        System.out.println("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
+        header("Test add new item to sorted many same items. variant 2 :");
+        info("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
         List<Integer> array = getRandomList(SIZE_TEST_ELEMENTS, true);
         Collections.sort(array);
         array.add(0, random.nextInt(SIZE_TEST_ELEMENTS));
+
+        long start = (new Date()).getTime();
+        Collections.sort(new ArrayList<>(array));
+        long end = (new Date()).getTime();
+        line("Collections.sort()",(double) (end - start));
+
         for (Sort sortClass : getSortClasses()) {
-            System.out.print(String.format("> %s", sortClass.getClass().toString()));
             double time = getTimeOfSort(array, sortClass);
-            System.out.print(String.format(" --> %4.1f ms\n", time));
+            line(sortClass.getClass().toString(),time);
+        }
+    }
+
+
+    @org.junit.Test
+    public void testTimeUniqueItemsPresort2NewItems() throws Exception {
+        header("Test add 2 new item to sorted many unique items :");
+        info("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
+        List<Integer> array = getRandomList(SIZE_TEST_ELEMENTS, true);
+        Collections.sort(array);
+        array.add(random.nextInt(SIZE_TEST_ELEMENTS));
+        array.add(random.nextInt(SIZE_TEST_ELEMENTS));
+
+        long start = (new Date()).getTime();
+        Collections.sort(new ArrayList<>(array));
+        long end = (new Date()).getTime();
+        line("Collections.sort()",(double) (end - start));
+
+        for (Sort sortClass : getSortClasses()) {
+            double time = getTimeOfSort(array, sortClass);
+            line(sortClass.getClass().toString(),time);
         }
     }
 
     @org.junit.Test
     public void testResearchUniqueWithDifferentSize() throws Exception {
-        System.out.println("\n#Research of sorting:");
+        header("Research of sorting:\n");
         int minExponent = 1;
-        int maxExponent = 7;
-        System.out.println("Amount elements = "
+        int maxExponent = 6;
+        info("Amount elements = "
                 + Math.pow(10, minExponent)
                 + " ... "
                 + Math.pow(10, maxExponent)
-                + " items");
+                + " items\n");
         List<List<Integer>> matrix = new ArrayList<>();
         for (int i = minExponent; i <= maxExponent; i++) {
             int amountItems = (int) Math.pow(10d, i);
             matrix.add(getRandomList(amountItems, true));
         }
 
-        System.out.println("Result of research");
+        info("Result of research\n");
+
+        {
+            System.out.println("Collections.sort()");
+            System.out.print(String.format("%10s", "Amount:"));
+            for (int i = minExponent; i <= maxExponent; i++) {
+                System.out.print(String.format("   10^%d |", i));
+            }
+
+            System.out.println();
+            System.out.print(String.format("%10s", "Time(ms):"));
+            for (int i = 0; i <= maxExponent - minExponent; i++) {
+                long start = (new Date()).getTime();
+                Collections.sort(new ArrayList<Integer>(matrix.get(i)));
+                long end = (new Date()).getTime();
+                System.out.print(String.format("%7.1f |", (double) (end - start)));
+                System.out.flush();
+            }
+            System.out.println("\n");
+        }
+
         for (Sort sortClass : getSortClasses()) {
             if (sortClass instanceof SelectionSort ||
                     sortClass instanceof BinarySort ||
@@ -213,7 +307,7 @@ public class ResearchSort {
             System.out.println();
             System.out.print(String.format("%10s", "Time(ms):"));
             for (int i = 0; i <= maxExponent - minExponent; i++) {
-                double time = getTimeOfSort(matrix.get(i), sortClass);
+                double time = getTimeOfSort(new ArrayList<Integer>(matrix.get(i)), sortClass);
                 System.out.print(String.format("%7.1f |", time));
                 System.out.flush();
             }

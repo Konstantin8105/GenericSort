@@ -5,6 +5,8 @@ import java.util.List;
 
 public class MergeSortIndex<T extends Comparable<T>> implements Sort<T> {
 
+    List<T> list;
+
     @Override
     public List<T> sort(List<T> list) {
         if (list == null)
@@ -14,27 +16,28 @@ public class MergeSortIndex<T extends Comparable<T>> implements Sort<T> {
         if (list.size() == 1)
             return new ArrayList<>(list);
 
-        int[] index = new int[list.size()];
-        for (int i = 0; i < list.size(); i++) {
+        this.list = list;
+
+        int[] index = new int[this.list.size()];
+        for (int i = 0; i < this.list.size(); i++) {
             index[i] = i;
         }
-        index = mergeSort(list, index);
+        index = mergeSort(index);
 
         List<T> output = new ArrayList<>();
         for (int i = 0; i < index.length; i++) {
-            output.add(list.get(index[i]));
+            output.add(this.list.get(index[i]));
         }
 
         return output;
     }
 
-    private int[] mergeSort(List<T> list, int[] index) {
+    private int[] mergeSort(int[] index) {
         if (index.length == 1) {
             return index;
         }
         if (index.length == 2) {
             if (list.get(index[0]).compareTo(list.get(index[1])) > 0) {
-                //swap(list, start, end);
                 int tempIndex = index[0];
                 index[0] = index[1];
                 index[1] = tempIndex;
@@ -45,12 +48,19 @@ public class MergeSortIndex<T extends Comparable<T>> implements Sort<T> {
         int middle = index.length >>> 1;
 
         int[] flow1 = new int[middle - 0];
-        System.arraycopy(index,0,flow1,0,middle);
-        flow1 = mergeSort(list, flow1);
+        System.arraycopy(index, 0, flow1, 0, middle);
 
         int[] flow2 = new int[index.length - middle];
-        System.arraycopy(index,middle,flow2,0,flow2.length);
-        flow2 = mergeSort(list, flow2);
+        System.arraycopy(index, middle, flow2, 0, flow2.length);
+
+        flow1 = mergeSort(flow1);
+        flow2 = mergeSort(flow2);
+
+        return mergeArrays(flow1, flow2);
+    }
+
+    private int[] mergeArrays(int[] flow1, int[] flow2) {
+        int[] result = new int[flow1.length + flow2.length];
 
         int positionFlow1 = 0;
         int positionFlow2 = 0;
@@ -60,16 +70,16 @@ public class MergeSortIndex<T extends Comparable<T>> implements Sort<T> {
             if (positionFlow1 == flow1.length && positionFlow2 == flow2.length) {
                 break;
             } else if (positionFlow1 == flow1.length) {
-                index[position] = flow2[positionFlow2++];
+                result[position] = flow2[positionFlow2++];
             } else if (positionFlow2 == flow2.length) {
-                index[position] = flow1[positionFlow1++];
+                result[position] = flow1[positionFlow1++];
             } else if (list.get(flow1[positionFlow1]).compareTo(list.get(flow2[positionFlow2])) > 0) {
-                index[position] = flow2[positionFlow2++];
+                result[position] = flow2[positionFlow2++];
             } else {
-                index[position] = flow1[positionFlow1++];
+                result[position] = flow1[positionFlow1++];
             }
             position++;
         }
-        return index;
+        return result;
     }
 }
