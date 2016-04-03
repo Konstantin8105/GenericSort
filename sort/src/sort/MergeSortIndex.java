@@ -6,7 +6,7 @@ import java.util.List;
 public class MergeSortIndex<T extends Comparable<T>> implements Sort<T> {
 
     List<T> list;
-    private final int INSERTION_SORT_BORDER = 7;
+    private final int INSERTION_SORT_BORDER = 8;
 
     @Override
     public List<T> sort(List<T> list) {

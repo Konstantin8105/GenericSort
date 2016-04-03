@@ -5,7 +5,7 @@ import sort.*;
 import java.util.*;
 
 public class ResearchSort {
-    private final int SIZE_TEST_ELEMENTS = 1_000_000;
+    private final int SIZE_TEST_ELEMENTS = 10_000;
 
     private final static Random random = new Random();
 
@@ -14,16 +14,16 @@ public class ResearchSort {
                 new MergeSortIndex()
                 ,
                 new MergeSort()
-                //,
-                //new CountingSort()
-                //,
-                //new SquareSort<>()
-                //,
-                //new SelectionSort()
-                //,
-                //new BinarySort()
-                //,
-                //new InsertionSort()
+                ,
+                new CountingSort()
+                ,
+                new SquareSort<>()
+                ,
+                new SelectionSort()
+                ,
+                new BinarySort()
+                ,
+                new InsertionSort()
         };
     }
 
@@ -60,10 +60,11 @@ public class ResearchSort {
     @SuppressWarnings("unchecked")
     private <T> double getTimeOfSort(List<T> input, Sort sortClass) {
         List<Long> timePeriod = new ArrayList<>();
-        int amountTest = 1;//5;
+        int amountTest = 5;
         for (int i = 0; i < amountTest; i++) {
+            List<T> list = new ArrayList<>(input);
             long start = (new Date()).getTime();
-            sortClass.sort(input);
+            sortClass.sort(list);
             long end = (new Date()).getTime();
             timePeriod.add(end - start);
         }
@@ -74,6 +75,7 @@ public class ResearchSort {
         }
         return (double) minTime;
         */
+        //System.out.println(timePeriod+"\n");
         double averageTime = 0;
         for (Long time : timePeriod) {
             averageTime += time;
@@ -294,7 +296,7 @@ public class ResearchSort {
             System.out.print(String.format("%10s", "Time(ms):"));
             for (int i = 0; i <= maxExponent - minExponent; i++) {
                 long start = (new Date()).getTime();
-                Collections.sort(new ArrayList<Integer>(matrix.get(i)));
+                Collections.sort(new ArrayList<>(matrix.get(i)));
                 long end = (new Date()).getTime();
                 System.out.print(String.format("%7.1f |", (double) (end - start)));
                 System.out.flush();
