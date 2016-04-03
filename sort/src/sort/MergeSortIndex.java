@@ -6,6 +6,7 @@ import java.util.List;
 public class MergeSortIndex<T extends Comparable<T>> implements Sort<T> {
 
     List<T> list;
+    private final int INSERTION_SORT_BORDER = 7;
 
     @Override
     public List<T> sort(List<T> list) {
@@ -33,34 +34,30 @@ public class MergeSortIndex<T extends Comparable<T>> implements Sort<T> {
     }
 
     private int[] mergeSort(int[] index) {
-        if (index.length == 1) {
-            return index;
-        }
-        if (index.length == 2) {
-            if (list.get(index[0]).compareTo(list.get(index[1])) > 0) {
-                int tempIndex = index[0];
-                index[0] = index[1];
-                index[1] = tempIndex;
-            }
+        if (index.length < INSERTION_SORT_BORDER) {
+            // insertion sort
+            for (int i = 0; i < index.length; i++)
+                for (int j = i; j > 0; j--)
+                    if (list.get(index[j - 1]).compareTo(list.get(index[j])) > 0) {
+                        int tempIndex = index[j];
+                        index[j] = index[j - 1];
+                        index[j - 1] = tempIndex;
+                    }
             return index;
         }
 
         int middle = index.length >>> 1;
 
-        int[] flow1 = new int[middle - 0];
+        int[] flow1 = new int[middle];
         System.arraycopy(index, 0, flow1, 0, middle);
 
         int[] flow2 = new int[index.length - middle];
         System.arraycopy(index, middle, flow2, 0, flow2.length);
 
-        flow1 = mergeSort(flow1);
-        flow2 = mergeSort(flow2);
-
-        return mergeArrays(flow1, flow2);
+        return mergeArrays(index, mergeSort(flow1), mergeSort(flow2));
     }
 
-    private int[] mergeArrays(int[] flow1, int[] flow2) {
-        int[] result = new int[flow1.length + flow2.length];
+    private int[] mergeArrays(int[] result,int[] flow1, int[] flow2) {
 
         int positionFlow1 = 0;
         int positionFlow2 = 0;
@@ -70,7 +67,8 @@ public class MergeSortIndex<T extends Comparable<T>> implements Sort<T> {
             if (positionFlow1 == flow1.length && positionFlow2 == flow2.length) {
                 break;
             } else if (positionFlow1 == flow1.length) {
-                result[position] = flow2[positionFlow2++];
+                System.arraycopy(result,position,flow2,positionFlow2,flow2.length-positionFlow2);
+                positionFlow2 = flow2.length;
             } else if (positionFlow2 == flow2.length) {
                 result[position] = flow1[positionFlow1++];
             } else if (list.get(flow1[positionFlow1]).compareTo(list.get(flow2[positionFlow2])) > 0) {

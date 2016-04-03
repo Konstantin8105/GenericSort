@@ -5,13 +5,13 @@ import sort.*;
 import java.util.*;
 
 public class ResearchSort {
-    private final int SIZE_TEST_ELEMENTS = 100_000;
+    private final int SIZE_TEST_ELEMENTS = 1_000_000;
 
     private final static Random random = new Random();
 
     private static Sort[] getSortClasses() {
         return new Sort[]{
-                new MergeSortIndex<>()
+                new MergeSortIndex()
                 ,
                 new MergeSort()
                 //,
@@ -36,8 +36,8 @@ public class ResearchSort {
         System.out.println(info + "\n");
     }
 
-    private void line(String className, double time){
-        System.out.println("> "+className+" --> "+String.format("%.1f",time)+" ms\n");
+    private void line(String className, double time) {
+        System.out.println("> " + className + " --> " + String.format("%.1f", time) + " ms\n");
     }
 
     private List<Integer> getRandomList(int amountElements, boolean isManyUnique) {
@@ -60,18 +60,25 @@ public class ResearchSort {
     @SuppressWarnings("unchecked")
     private <T> double getTimeOfSort(List<T> input, Sort sortClass) {
         List<Long> timePeriod = new ArrayList<>();
-        int amountTest = 5;
+        int amountTest = 1;//5;
         for (int i = 0; i < amountTest; i++) {
             long start = (new Date()).getTime();
             sortClass.sort(input);
             long end = (new Date()).getTime();
             timePeriod.add(end - start);
         }
+        /*
         long minTime = timePeriod.get(0);
         for (Long time : timePeriod) {
             minTime = Math.min(minTime, time);
         }
         return (double) minTime;
+        */
+        double averageTime = 0;
+        for (Long time : timePeriod) {
+            averageTime += time;
+        }
+        return averageTime / ((double) timePeriod.size());
     }
 
 
@@ -84,11 +91,11 @@ public class ResearchSort {
         long start = (new Date()).getTime();
         Collections.sort(new ArrayList<>(array));
         long end = (new Date()).getTime();
-        line("Collections.sort()",(double) (end - start));
+        line("Collections.sort()", (double) (end - start));
 
         for (Sort sortClass : getSortClasses()) {
             double time = getTimeOfSort(array, sortClass);
-            line(sortClass.getClass().toString(),time);
+            line(sortClass.getClass().toString(), time);
         }
     }
 
@@ -101,11 +108,11 @@ public class ResearchSort {
         long start = (new Date()).getTime();
         Collections.sort(new ArrayList<>(array));
         long end = (new Date()).getTime();
-        line("Collections.sort()",(double) (end - start));
+        line("Collections.sort()", (double) (end - start));
 
         for (Sort sortClass : getSortClasses()) {
             double time = getTimeOfSort(array, sortClass);
-            line(sortClass.getClass().toString(),time);
+            line(sortClass.getClass().toString(), time);
         }
     }
 
@@ -127,11 +134,11 @@ public class ResearchSort {
         long start = (new Date()).getTime();
         Collections.sort(new ArrayList<>(array));
         long end = (new Date()).getTime();
-        line("Collections.sort()",(double) (end - start));
+        line("Collections.sort()", (double) (end - start));
 
         for (Sort sortClass : getSortClasses()) {
             double time = getTimeOfSort(array, sortClass);
-            line(sortClass.getClass().toString(),time);
+            line(sortClass.getClass().toString(), time);
         }
     }
 
@@ -141,19 +148,22 @@ public class ResearchSort {
         info("Amount elements = " + SIZE_TEST_ELEMENTS + " items");
         List<Integer> array = getRandomList(SIZE_TEST_ELEMENTS, true);
         Collections.sort(array);
-        List<Integer> input = new ArrayList<>();
-        for (int i = 0; i < array.size(); i++) {
-            input.add(array.get(i));
+        {
+            List<Integer> input = new ArrayList<>();
+            for (int i = 0; i < array.size(); i++) {
+                input.add(array.get(i));
+            }
+            array = input;
         }
 
         long start = (new Date()).getTime();
         Collections.sort(new ArrayList<>(array));
         long end = (new Date()).getTime();
-        line("Collections.sort()",(double) (end - start));
+        line("Collections.sort()", (double) (end - start));
 
         for (Sort sortClass : getSortClasses()) {
-            double time = getTimeOfSort(input, sortClass);
-            line(sortClass.getClass().toString(),time);
+            double time = getTimeOfSort(array, sortClass);
+            line(sortClass.getClass().toString(), time);
         }
     }
 
@@ -168,11 +178,11 @@ public class ResearchSort {
         long start = (new Date()).getTime();
         Collections.sort(new ArrayList<>(array));
         long end = (new Date()).getTime();
-        line("Collections.sort()",(double) (end - start));
+        line("Collections.sort()", (double) (end - start));
 
         for (Sort sortClass : getSortClasses()) {
             double time = getTimeOfSort(array, sortClass);
-            line(sortClass.getClass().toString(),time);
+            line(sortClass.getClass().toString(), time);
         }
     }
 
@@ -186,12 +196,12 @@ public class ResearchSort {
         long start = (new Date()).getTime();
         Collections.sort(new ArrayList<>(array));
         long end = (new Date()).getTime();
-        line("Collections.sort()",(double) (end - start));
+        line("Collections.sort()", (double) (end - start));
 
         array.add(random.nextInt(SIZE_TEST_ELEMENTS));
         for (Sort sortClass : getSortClasses()) {
             double time = getTimeOfSort(array, sortClass);
-            line(sortClass.getClass().toString(),time);
+            line(sortClass.getClass().toString(), time);
         }
     }
 
@@ -207,11 +217,11 @@ public class ResearchSort {
         long start = (new Date()).getTime();
         Collections.sort(new ArrayList<>(array));
         long end = (new Date()).getTime();
-        line("Collections.sort()",(double) (end - start));
+        line("Collections.sort()", (double) (end - start));
 
         for (Sort sortClass : getSortClasses()) {
             double time = getTimeOfSort(array, sortClass);
-            line(sortClass.getClass().toString(),time);
+            line(sortClass.getClass().toString(), time);
         }
     }
 
@@ -226,11 +236,11 @@ public class ResearchSort {
         long start = (new Date()).getTime();
         Collections.sort(new ArrayList<>(array));
         long end = (new Date()).getTime();
-        line("Collections.sort()",(double) (end - start));
+        line("Collections.sort()", (double) (end - start));
 
         for (Sort sortClass : getSortClasses()) {
             double time = getTimeOfSort(array, sortClass);
-            line(sortClass.getClass().toString(),time);
+            line(sortClass.getClass().toString(), time);
         }
     }
 
@@ -247,18 +257,18 @@ public class ResearchSort {
         long start = (new Date()).getTime();
         Collections.sort(new ArrayList<>(array));
         long end = (new Date()).getTime();
-        line("Collections.sort()",(double) (end - start));
+        line("Collections.sort()", (double) (end - start));
 
         for (Sort sortClass : getSortClasses()) {
             double time = getTimeOfSort(array, sortClass);
-            line(sortClass.getClass().toString(),time);
+            line(sortClass.getClass().toString(), time);
         }
     }
 
     @org.junit.Test
     public void testResearchUniqueWithDifferentSize() throws Exception {
         header("Research of sorting:\n");
-        int minExponent = 1;
+        int minExponent = 0;
         int maxExponent = 6;
         info("Amount elements = "
                 + Math.pow(10, minExponent)
@@ -307,7 +317,7 @@ public class ResearchSort {
             System.out.println();
             System.out.print(String.format("%10s", "Time(ms):"));
             for (int i = 0; i <= maxExponent - minExponent; i++) {
-                double time = getTimeOfSort(new ArrayList<Integer>(matrix.get(i)), sortClass);
+                double time = getTimeOfSort(new ArrayList<>(matrix.get(i)), sortClass);
                 System.out.print(String.format("%7.1f |", time));
                 System.out.flush();
             }
