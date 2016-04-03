@@ -286,14 +286,14 @@ public class ResearchSort {
         info("Result of research\n");
 
         {
-            System.out.println("Collections.sort()");
-            System.out.print(String.format("%10s", "Amount:"));
+            System.out.println("> Collections.sort()");
+            System.out.print(String.format("> %10s", "Amount:"));
             for (int i = minExponent; i <= maxExponent; i++) {
                 System.out.print(String.format("   10^%d |", i));
             }
 
             System.out.println();
-            System.out.print(String.format("%10s", "Time(ms):"));
+            System.out.print(String.format("> %10s", "Time(ms):"));
             for (int i = 0; i <= maxExponent - minExponent; i++) {
                 long start = (new Date()).getTime();
                 Collections.sort(new ArrayList<>(matrix.get(i)));
@@ -311,13 +311,13 @@ public class ResearchSort {
                     ) {
                 continue;
             }
-            System.out.println(String.format("%s", sortClass.getClass().toString()));
-            System.out.print(String.format("%10s", "Amount:"));
+            System.out.println(String.format("> %s", sortClass.getClass().toString()));
+            System.out.print(String.format("> %10s", "Amount:"));
             for (int i = minExponent; i <= maxExponent; i++) {
                 System.out.print(String.format("   10^%d |", i));
             }
             System.out.println();
-            System.out.print(String.format("%10s", "Time(ms):"));
+            System.out.print(String.format("> %10s", "Time(ms):"));
             for (int i = 0; i <= maxExponent - minExponent; i++) {
                 double time = getTimeOfSort(new ArrayList<>(matrix.get(i)), sortClass);
                 System.out.print(String.format("%7.1f |", time));
@@ -325,9 +325,5 @@ public class ResearchSort {
             }
             System.out.println("\n");
         }
-    }
-
-    public static void research(Sort sortClass) {
-
     }
 }
