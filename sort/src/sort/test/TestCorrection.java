@@ -1,3 +1,4 @@
+import research.ListSort;
 import sort.*;
 
 import java.util.*;
@@ -7,24 +8,6 @@ import static org.junit.Assert.assertEquals;
 public class TestCorrection {
 
     private final int SIZE_TEST_ELEMENTS = 1_000;
-
-    private static Sort[] getSortClasses() {
-        return new Sort[]{
-                new MergeSortIndex<>()
-                ,
-                new MergeSort()
-                ,
-                new CountingSort()
-                ,
-                new SelectionSort()
-                ,
-                new BinarySort()
-                ,
-                new InsertionSort()
-                ,
-                new SquareSort()
-        };
-    }
 
     @SuppressWarnings("unchecked")
     @org.junit.Test
@@ -39,7 +22,7 @@ public class TestCorrection {
         List<Integer> expected  = new ArrayList<>(array);
         Collections.sort(expected);
 
-        for (Sort sortClass : getSortClasses()) {
+        for (Sort sortClass : ListSort.sorts) {
             System.out.print(String.format("> %s", sortClass.getClass().toString()));
             List<Integer> result = sortClass.sort(array);
             assertEquals(array.size(), result.size());
