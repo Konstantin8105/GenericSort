@@ -10,7 +10,7 @@ public class Research {
     private static final char SORT_WINNER = '*';
     private static final char SORT_LOST = ' ';
 
-    static class OutputResult{
+    static class OutputResult {
         public String sortName;
         public double time;
         boolean winner;
@@ -22,9 +22,9 @@ public class Research {
 
     public static void main(String[] args) {
         for (Test<?> test : ListTests.tests) {
-            System.out.println("\n"+test.getClass().toString() + ":");
+            System.out.println("\n" + test.getClass().toString() + ":");
 
-            OutputResult result[] = new OutputResult[ListSort.sorts.length+1];
+            OutputResult result[] = new OutputResult[ListSort.sorts.length + 1];
 
             for (int i = 0; i < ListSort.sorts.length; i++) {
                 result[i] = new OutputResult();
@@ -40,17 +40,17 @@ public class Research {
 
             double minTime = result[0].time;
             for (int i = 0; i < result.length; i++) {
-                if(minTime > result[i].time)
+                if (minTime > result[i].time)
                     minTime = result[i].time;
             }
             for (int i = 0; i < result.length; i++) {
-                if(result[i].time == minTime)
+                if (result[i].time == minTime)
                     result[i].winner = true;
             }
 
             for (int i = 0; i < result.length; i++) {
                 char winnerChar = SORT_LOST;
-                if(result[i].winner) winnerChar = SORT_WINNER;
+                if (result[i].winner) winnerChar = SORT_WINNER;
                 String out = String.format("%-30s\t%-8.2f ms\t%c", result[i].sortName, result[i].time, winnerChar);
                 System.out.println(out);
             }
@@ -58,19 +58,23 @@ public class Research {
         }
     }
 
+    private static int amountTest = 3;
+
     private static double time(Test<?> test) {
         long start = System.nanoTime();
-        Collections.sort(test.getArray());
+        for (int i = 0; i < amountTest; i++) {
+            Collections.sort(test.getArray());
+        }
         long end = System.nanoTime();
-
-        return end - start;
+        return (end-start)/amountTest;
     }
 
     private static long time(Test<?> test, Sort sort) {
         long start = System.nanoTime();
-        sort.sort(test.getArray());
+        for (int i = 0; i < amountTest; i++) {
+            sort.sort(test.getArray());
+        }
         long end = System.nanoTime();
-
-        return end - start;
+        return (end-start)/amountTest;
     }
 }

@@ -6,12 +6,13 @@ import sort.*;
 public class ListSort {
     public static Sort sorts[] = {
             new MergeSortIndex(),
+            new MergeSortIndexSimple(),
             new MergeSort(),
-            new CountingSort(),
-            new SquareSort<>(),
-            new SelectionSort(),
-            new BinarySort(),
-            new InsertionSort()
+//            new CountingSort(),
+//            new SquareSort<>(),
+//            new SelectionSort(),
+//            new BinarySort(),
+//            new InsertionSort()
     };
 
     public static void main(String[] args) {
