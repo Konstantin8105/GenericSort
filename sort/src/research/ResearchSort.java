@@ -63,9 +63,11 @@ public class ResearchSort {
         int amountTest = 5;
         for (int i = 0; i < amountTest; i++) {
             List<T> list = new ArrayList<>(input);
-            long start = (new Date()).getTime();
+            //long start = (new Date()).getTime();
+            long start = System.nanoTime();
             sortClass.sort(list);
-            long end = (new Date()).getTime();
+            //long end = (new Date()).getTime();
+            long end = System.nanoTime();
             timePeriod.add(end - start);
         }
         /*
@@ -80,7 +82,7 @@ public class ResearchSort {
         for (Long time : timePeriod) {
             averageTime += time;
         }
-        return averageTime / ((double) timePeriod.size());
+        return (averageTime / ((double) timePeriod.size()))/1000000d;
     }
 
 
