@@ -1,4 +1,4 @@
-package research.tests;
+package research.tests.integer;
 
 import research.base.TestInteger;
 

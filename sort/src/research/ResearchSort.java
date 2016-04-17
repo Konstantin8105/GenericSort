@@ -9,23 +9,6 @@ public class ResearchSort {
 
     private final static Random random = new Random();
 
-    private static Sort[] getSortClasses() {
-        return new Sort[]{
-                new MergeSortIndex()
-                ,
-                new MergeSort()
-                ,
-                new CountingSort()
-                ,
-                new SquareSort<>()
-                ,
-                new SelectionSort()
-                ,
-                new BinarySort()
-                ,
-                new InsertionSort()
-        };
-    }
 
     private void header(String header) {
         System.out.println("---------------------------------------\n");
@@ -39,7 +22,7 @@ public class ResearchSort {
     private void line(String className, double time) {
         System.out.println("> " + className + " --> " + String.format("%.1f", time) + " ms\n");
     }
-
+/*
     private List<Integer> getRandomList(int amountElements, boolean isManyUnique) {
         List<Integer> output = new ArrayList<>();
         int factorUnique = amountElements;
@@ -56,7 +39,7 @@ public class ResearchSort {
         }
         return output;
     }
-
+*/
     @SuppressWarnings("unchecked")
     private <T> double getTimeOfSort(List<T> input, Sort sortClass) {
         List<Long> timePeriod = new ArrayList<>();
@@ -85,7 +68,7 @@ public class ResearchSort {
         return (averageTime / ((double) timePeriod.size()))/1000000d;
     }
 
-
+/*
     @org.junit.Test
     public void testTimeNotUniqueItems() throws Exception {
         header("Test with many same items:");
@@ -119,8 +102,9 @@ public class ResearchSort {
             line(sortClass.getClass().toString(), time);
         }
     }
+*/
 
-
+    /*
     @org.junit.Test
     public void testTimeUniqueStrings() throws Exception {
         header("Test with many unique strings:");
@@ -145,7 +129,8 @@ public class ResearchSort {
             line(sortClass.getClass().toString(), time);
         }
     }
-
+*/
+    /*
     @org.junit.Test
     public void testTimeUniqueItems_InvertDirection() throws Exception {
         header("Test with many unique items on invert direction:");
@@ -170,7 +155,8 @@ public class ResearchSort {
             line(sortClass.getClass().toString(), time);
         }
     }
-
+    */
+/*
     @org.junit.Test
     public void testTimeUniqueItemsPresort() throws Exception {
         header("Test add new item to sorted many unique items :");
@@ -268,7 +254,8 @@ public class ResearchSort {
             line(sortClass.getClass().toString(), time);
         }
     }
-
+*/
+    /*
     @org.junit.Test
     public void testResearchUniqueWithDifferentSize() throws Exception {
         header("Research of sorting:\n");
@@ -327,5 +314,5 @@ public class ResearchSort {
             }
             System.out.println("\n");
         }
-    }
+    }*/
 }
