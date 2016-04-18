@@ -3,7 +3,7 @@ package sort;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MergeSortIndexSimple <T extends Comparable<T>> implements Sort<T> {
+public class MergeSort5Segment<T extends Comparable<T>> implements Sort<T> {
 
     @Override
     public List<T> sort(List<T> list) throws Exception {

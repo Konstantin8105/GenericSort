@@ -1,12 +1,11 @@
 package research;
 
-import research.base.Test;
 import sort.*;
 
 public class ListSort {
     public static Sort sorts[] = {
             new MergeSortIndex(),
-            new MergeSortIndexSimple(),
+            new MergeSort5Segment(),
             new MergeSort(),
 //            new CountingSort(),
 //            new SquareSort<>(),
