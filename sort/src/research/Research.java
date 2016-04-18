@@ -20,7 +20,7 @@ public class Research {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         for (Test<?> test : ListTests.tests) {
             System.out.println("\n" + test.getClass().toString() + ":");
 
@@ -69,7 +69,7 @@ public class Research {
         return (end-start)/amountTest;
     }
 
-    private static long time(Test<?> test, Sort sort) {
+    private static long time(Test<?> test, Sort sort) throws Exception {
         long start = System.nanoTime();
         for (int i = 0; i < amountTest; i++) {
             sort.sort(test.getArray());

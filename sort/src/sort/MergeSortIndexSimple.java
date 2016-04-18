@@ -5,11 +5,8 @@ import java.util.List;
 
 public class MergeSortIndexSimple <T extends Comparable<T>> implements Sort<T> {
 
-    List<T> list;
-    private final int INSERTION_SORT_BORDER = 8;
-
     @Override
-    public List<T> sort(List<T> list) {
+    public List<T> sort(List<T> list) throws Exception {
         if (list == null)
             throw new NullPointerException();
         if (list.size() == 0)
@@ -17,67 +14,77 @@ public class MergeSortIndexSimple <T extends Comparable<T>> implements Sort<T> {
         if (list.size() == 1)
             return new ArrayList<>(list);
 
-        this.list = list;
-
-        int[] index = new int[this.list.size()];
-        for (int i = 0; i < this.list.size(); i++) {
-            index[i] = i;
-        }
-        index = mergeSort(index);
-
-        List<T> output = new ArrayList<>();
-        for (int i = 0; i < index.length; i++) {
-            output.add(this.list.get(index[i]));
-        }
+        List<T> output = new ArrayList<>(list);
+        mergeSort(output, 0, output.size() - 1);
 
         return output;
     }
 
-    private int[] mergeSort(int[] index) {
-        if (index.length < INSERTION_SORT_BORDER) {
-            // insertion sort
-            for (int i = 0; i < index.length; i++)
-                for (int j = i; j > 0; j--)
-                    if (list.get(index[j - 1]).compareTo(list.get(index[j])) > 0) {
-                        int tempIndex = index[j];
-                        index[j] = index[j - 1];
-                        index[j - 1] = tempIndex;
-                    }
-            return index;
+    private void mergeSort(List<T> list, int start, int end) throws Exception {
+        if (end - start < 0)
+            throw new NullPointerException();
+        if (end - start == 0) {
+            return;
+        }
+        if (end - start == 1) {
+            if (list.get(start).compareTo(list.get(end)) > 0) {
+                swap(list, start, end);
+            }
+            return;
+        }
+        if(end-start == 4){
+            Sort5elements<T> sort5elements = new Sort5elements<>();
+            List<T> temp = new ArrayList<>();
+            for (int i = start; i <= end; i++) {
+                temp.add(list.get(i));
+            }
+            temp = sort5elements.sort(temp);
+            for (int i = 0; i < temp.size(); i++) {
+                list.set(start+1,temp.get(i));
+            }
         }
 
-        int middle = index.length >>> 1;
+        int middle = (end + start) >>> 1;
 
-        int[] flow1 = new int[middle];
-        System.arraycopy(index, 0, flow1, 0, middle);
+        if (end - start > 1) {
+            mergeSort(list, start, middle);
+            mergeSort(list, middle + 1, end);
+        }
 
-        int[] flow2 = new int[index.length - middle];
-        System.arraycopy(index, middle, flow2, 0, flow2.length);
+        List<T> flow1 = new ArrayList<>(list.subList(start, middle + 1));
+        List<T> flow2 = new ArrayList<>(list.subList(middle + 1, end + 1));
 
-        return mergeArrays(index, mergeSort(flow1), mergeSort(flow2));
-    }
+        int flow1Size = flow1.size();
+        int flow2Size = flow2.size();
 
-    private int[] mergeArrays(int[] result,int[] flow1, int[] flow2) {
+        //if (flow1Size + flow2Size != end - start + 1)
+        //    throw new NullPointerException();
 
         int positionFlow1 = 0;
         int positionFlow2 = 0;
-        int position = 0;
+
+        int position = start;
 
         while (true) {
-            if (positionFlow1 == flow1.length && positionFlow2 == flow2.length) {
+            if (positionFlow1 == flow1Size && positionFlow2 == flow2Size) {
                 break;
-            } else if (positionFlow1 == flow1.length) {
-                System.arraycopy(result,position,flow2,positionFlow2,flow2.length-positionFlow2);
-                positionFlow2 = flow2.length;
-            } else if (positionFlow2 == flow2.length) {
-                result[position] = flow1[positionFlow1++];
-            } else if (list.get(flow1[positionFlow1]).compareTo(list.get(flow2[positionFlow2])) > 0) {
-                result[position] = flow2[positionFlow2++];
+            } else if (positionFlow1 == flow1Size) {
+                list.set(position, flow2.get(positionFlow2++));
+            } else if (positionFlow2 == flow2Size) {
+                list.set(position, flow1.get(positionFlow1++));
+            } else if (flow1.get(positionFlow1).compareTo(flow2.get(positionFlow2)) > 0) {
+                list.set(position, flow2.get(positionFlow2++));
             } else {
-                result[position] = flow1[positionFlow1++];
+                list.set(position, flow1.get(positionFlow1++));
             }
             position++;
         }
-        return result;
     }
+
+    private void swap(List<T> list, int i, int j) {
+        T temp = list.get(i);
+        list.set(i, list.get(j));
+        list.set(j, temp);
+    }
+
 }
