@@ -7,11 +7,11 @@ public class ListSort {
             new MergeSortIndex(),
             new MergeSort5Segment(),
             new MergeSort(),
-//            new CountingSort(),
-//            new SquareSort<>(),
-//            new SelectionSort(),
-//            new BinarySort(),
-//            new InsertionSort()
+            new CountingSort(),
+            new SquareSort<>(),
+            new SelectionSort(),
+            new BinarySort(),
+            new InsertionSort()
     };
 
     public static void main(String[] args) {
