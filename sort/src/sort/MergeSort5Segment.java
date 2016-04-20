@@ -40,7 +40,7 @@ public class MergeSort5Segment<T extends Comparable<T>> implements Sort<T> {
             }
             temp = sort5elements.sort(temp);
             for (int i = 0; i < temp.size(); i++) {
-                list.set(start+1,temp.get(i));
+                list.set(start+i,temp.get(i));
             }
         }
 

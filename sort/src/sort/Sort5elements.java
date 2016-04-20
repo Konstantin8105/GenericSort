@@ -12,15 +12,15 @@ public class Sort5elements<T extends Comparable<T>> implements Sort<T> {
         return sort5elements(list);
     }
 
-    private List<T> sort5elements(List<T> list) {
+    private List<T> sort5elements(List<T> input) {
 
-        List<T> temp = new ArrayList<>(list);
+        List<T> list = new ArrayList<>(input);
 
         if (list.get(0).compareTo(list.get(1)) > 0) {// step 1
-            swap(temp, 0, 1);
+            swap(list, 0, 1);
         }
         if (list.get(2).compareTo(list.get(3)) > 0) {// step 2
-            swap(temp, 2, 3);
+            swap(list, 2, 3);
         }
         // 0 < 1
         // 2 < 3
@@ -34,8 +34,8 @@ public class Sort5elements<T extends Comparable<T>> implements Sort<T> {
             // 2 < 0 < 1
             // 2 < 3
             // 4
-            swap(temp, 0, 2);
-            swap(temp, 1, 3);
+            swap(list, 0, 2);
+            swap(list, 1, 3);
         }
 
         // 0 < 2 < 3
@@ -150,7 +150,7 @@ public class Sort5elements<T extends Comparable<T>> implements Sort<T> {
         }
         List<T> output = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            output.add(temp.get(result[i]));
+            output.add(list.get(result[i]));
         }
         return output;
     }

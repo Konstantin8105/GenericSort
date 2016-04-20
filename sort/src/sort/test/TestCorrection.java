@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 public class TestCorrection {
 
-    private final int SIZE_TEST_ELEMENTS = 100;
+    private final int SIZE_TEST_ELEMENTS = 10;
 
     @SuppressWarnings("unchecked")
     @org.junit.Test
@@ -23,10 +23,12 @@ public class TestCorrection {
         Collections.sort(expected);
 
         for (Sort sortClass : ListSort.sorts) {
-            System.out.print(String.format("> %s", sortClass.getClass().toString()));
+            System.out.print(String.format("> %s -- ", sortClass.getClass().toString()));
             List<Integer> result = sortClass.sort(array);
             assertEquals(array.size(), result.size());
+            System.out.print("*");
             assertEquals(expected,result);
+            System.out.print("*");
             System.out.println(" --> OK\n");
         }
     }

@@ -20,6 +20,7 @@ public class MergeSort2<T extends Comparable<T>> implements Sort<T> {
         for (int i = 0; i < list.size(); i++) {
             if (i == list.size() - 1) {
                 part.add(list.get(i));
+                if (!isNextBigger) Collections.reverse(part);
                 parts.add(part);
                 break;
             }
