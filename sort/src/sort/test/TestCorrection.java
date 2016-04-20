@@ -16,7 +16,7 @@ public class TestCorrection {
         System.out.println("Amount elements = " + SIZE_TEST_ELEMENTS + " items\n");
         List<Integer> array = new ArrayList<>();
         for (int i = 0; i < SIZE_TEST_ELEMENTS; i++) {
-            array.add(SIZE_TEST_ELEMENTS/2 - i*i);
+            array.add(SIZE_TEST_ELEMENTS/2 - (int)(i*Math.sin(i)));
         }
 
         List<Integer> expected  = new ArrayList<>(array);
