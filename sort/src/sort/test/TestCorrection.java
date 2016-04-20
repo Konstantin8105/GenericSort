@@ -9,6 +9,8 @@ public class TestCorrection {
 
     private final int SIZE_TEST_ELEMENTS = 10;
 
+    Random rnd = new Random();
+
     @SuppressWarnings("unchecked")
     @org.junit.Test
     public void testCorrectResult() throws Exception {
@@ -16,7 +18,7 @@ public class TestCorrection {
         System.out.println("Amount elements = " + SIZE_TEST_ELEMENTS + " items\n");
         List<Integer> array = new ArrayList<>();
         for (int i = 0; i < SIZE_TEST_ELEMENTS; i++) {
-            array.add(SIZE_TEST_ELEMENTS/2 - (int)(i*Math.sin(i)));
+            array.add(rnd.nextInt(SIZE_TEST_ELEMENTS));
         }
 
         List<Integer> expected  = new ArrayList<>(array);

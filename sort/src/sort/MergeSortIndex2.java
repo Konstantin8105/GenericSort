@@ -20,19 +20,8 @@ public class MergeSortIndex2<T extends Comparable<T>> implements Sort<T> {
 
         List<Integer> parts = partitions(output);
 
-        mergeParts(output,parts);
+        mergeParts(output, parts);
 
-//        int[] index = new int[this.list.size()];
-//        for (int i = 0; i < this.list.size(); i++) {
-//            index[i] = i;
-//        }
-//        index = mergeSort(index);
-//
-//        List<T> output = new ArrayList<>();
-//        for (int i = 0; i < index.length; i++) {
-//            output.add(this.list.get(index[i]));
-//        }
-//
         return output;
     }
 
@@ -45,7 +34,7 @@ public class MergeSortIndex2<T extends Comparable<T>> implements Sort<T> {
             if (i == list.size() - 1) {
                 finishPoint = i;
                 if (!isNextBigger) reverse(list, startPoint, finishPoint);
-                partitionLength.add(finishPoint - startPoint);
+                partitionLength.add(finishPoint - startPoint + 1);
                 break;
             }
             if (startPoint == i) {
@@ -54,8 +43,8 @@ public class MergeSortIndex2<T extends Comparable<T>> implements Sort<T> {
                 if (isNextBigger != isNextBigger(list.get(i), list.get(i + 1))) {
                     if (!isNextBigger) reverse(list, startPoint, finishPoint);
                     finishPoint = i;
-                    partitionLength.add(finishPoint - startPoint);
-                    startPoint = i+1;
+                    partitionLength.add(finishPoint - startPoint + 1);
+                    startPoint = i + 1;
                 }
             }
         }
@@ -65,16 +54,16 @@ public class MergeSortIndex2<T extends Comparable<T>> implements Sort<T> {
 
     private void reverse(List<T> list, int from, int to) {
         int length = to - from + 1;
-        int amount = length/2;
+        int amount = length / 2;
         for (int i = 0; i < amount; i++) {
-            swap(list,from+i,to-i);
+            swap(list, from + i, to - i);
         }
     }
 
     private void swap(List<T> list, int i, int j) {
         T temp = list.get(i);
-        list.set(i,list.get(j));
-        list.set(j,temp);
+        list.set(i, list.get(j));
+        list.set(j, temp);
     }
 
     boolean isNextBigger(T present, T next) {
@@ -82,30 +71,48 @@ public class MergeSortIndex2<T extends Comparable<T>> implements Sort<T> {
             return true;
         return false;
     }
-/*
-    private int[] mergeSort(int[] index) {
-        if (index.length < INSERTION_SORT_BORDER) {
-            // insertion sort
-            for (int i = 0; i < index.length; i++)
-                for (int j = i; j > 0; j--)
-                    if (list.get(index[j - 1]).compareTo(list.get(index[j])) > 0) {
-                        int tempIndex = index[j];
-                        index[j] = index[j - 1];
-                        index[j - 1] = tempIndex;
+
+
+    private void mergeParts(List<T> list, List<Integer> parts) {
+        while (!isSinglePart(parts)) {
+            int positionLeft = 0;
+            for (int i = 0; i < parts.size(); i++) {
+                if (parts.get(i) > 0) {
+                    for (int j = i + 1; j < parts.size(); j++) {
+                        if (parts.get(j) > 0) {
+                            int sizeLeft = parts.get(i);
+                            int sizeRight = parts.get(j);
+                            merge(list, positionLeft, sizeLeft, sizeRight);
+                            parts.set(i, sizeLeft + sizeRight);
+                            parts.set(j, 0);
+                            j = parts.size();
+                        }
                     }
-            return index;
+                }
+                positionLeft += parts.get(i);
+            }
         }
-
-        int middle = index.length >>> 1;
-
-        int[] flow1 = new int[middle];
-        System.arraycopy(index, 0, flow1, 0, middle);
-
-        int[] flow2 = new int[index.length - middle];
-        System.arraycopy(index, middle, flow2, 0, flow2.length);
-
-        return mergeArrays(index, mergeSort(flow1), mergeSort(flow2));
     }
+
+
+    private boolean isSinglePart(List<Integer> parts) {
+        int amount = 0;
+        for (Integer size : parts) {
+            if (size > 0) {
+                amount++;
+            }
+            if (amount > 1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void merge(List<T> list, int initPositionInArray, int sizeLeft, int sizeRight) {
+
+    }
+
+/*
 
     private int[] mergeArrays(int[] result, int[] flow1, int[] flow2) {
 
@@ -130,5 +137,6 @@ public class MergeSortIndex2<T extends Comparable<T>> implements Sort<T> {
             position++;
         }
         return result;
-    }*/
+    }
+    */
 }
