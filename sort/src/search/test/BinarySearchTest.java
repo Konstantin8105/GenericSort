@@ -1,3 +1,5 @@
+package search.test;
+
 import search.BinarySearch;
 import sort.MergeSort;
 
