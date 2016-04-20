@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 public class TestCorrection {
 
-    private final int SIZE_TEST_ELEMENTS = 1_000;
+    private final int SIZE_TEST_ELEMENTS = 100;
 
     @SuppressWarnings("unchecked")
     @org.junit.Test

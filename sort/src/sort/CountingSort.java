@@ -21,8 +21,9 @@ public class CountingSort<T extends Comparable<T>> implements Sort<T> {
         }
 
         List<T> sortListT = new ArrayList<>(map.keySet());
-        MergeSort<T> mergeSort = new MergeSort<>();
-        sortListT = mergeSort.sort(sortListT);
+        //MergeSort<T> mergeSort = new MergeSort<>();
+        //sortListT = mergeSort.sort(sortListT);
+        Collections.sort(sortListT);
         if(sortListT.size() == list.size())
             return sortListT;
 

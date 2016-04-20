@@ -43,17 +43,15 @@ public class MergeSort2<T extends Comparable<T>> implements Sort<T> {
 
 //        Set<List<T>> set = new HashSet<>(parts);
 //
-//        List<T> last = null;
-//        if(parts.size() > 1)
-//        for(Iterator<List<T>> iterator = set.iterator();iterator.hasNext();){
-//            List<T> present = iterator.next();
-//            if(last == null){
-//                last = new ArrayList<>(present);
-//            } else {
-//                set.add(merge(last, present));
-//                last = null;
+//        if(parts.size() > 1) {
+//            while (set.size() !=1 ) {
+//                Iterator<List<T>> iterator = set.iterator();
+//                List<T> last = new ArrayList<>(iterator.next());
+//                iterator.remove();
+//                List<T> add = merge(last, iterator.next());
+//                iterator.remove();
+//                set.add(add);
 //            }
-//            iterator.remove();
 //        }
 //        Iterator<List<T>> iterator = set.iterator();
 //        return iterator.next();
