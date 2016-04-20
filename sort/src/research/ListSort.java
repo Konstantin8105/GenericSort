@@ -4,6 +4,7 @@ import sort.*;
 
 public class ListSort {
     public static Sort sorts[] = {
+            new MergeSortIndex2(),
             new MergeSortIndex(),
             new MergeSort5Segment(),
             new MergeSort(),
