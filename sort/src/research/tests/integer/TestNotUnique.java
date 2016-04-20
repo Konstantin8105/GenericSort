@@ -5,7 +5,7 @@ import research.base.TestInteger;
 public class TestNotUnique<T extends Integer> extends TestInteger<Integer> {
 
     public TestNotUnique() {
-        array = getRandomList(true);
+        array = getRandomList(false);
     }
 
     @Override

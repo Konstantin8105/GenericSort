@@ -2,7 +2,7 @@ package sort;
 
 import java.util.*;
 
-public class MergeSortIndex2<T extends Comparable<T>> implements Sort<T> {
+public class MergeSort2<T extends Comparable<T>> implements Sort<T> {
 
     @Override
     public List<T> sort(List<T> list) {
@@ -41,18 +41,34 @@ public class MergeSortIndex2<T extends Comparable<T>> implements Sort<T> {
 
     private List<T> mergeParts(List<List<T>> parts) {
 
+//        Set<List<T>> set = new HashSet<>(parts);
+//
+//        List<T> last = null;
+//        if(parts.size() > 1)
+//        for(Iterator<List<T>> iterator = set.iterator();iterator.hasNext();){
+//            List<T> present = iterator.next();
+//            if(last == null){
+//                last = new ArrayList<>(present);
+//            } else {
+//                set.add(merge(last, present));
+//                last = null;
+//            }
+//            iterator.remove();
+//        }
+//        Iterator<List<T>> iterator = set.iterator();
+//        return iterator.next();
+
+
         while (parts.size() != 1) {
             parts.add(merge(parts.get(1), parts.get(0)));
             parts.remove(1);
             parts.remove(0);
         }
-
-        Iterator<List<T>> iterator2 = parts.iterator();
-        return iterator2.next();
+        return parts.get(0);
     }
 
     private List<T> merge(List<T> flow1, List<T> flow2) {
-        List<T> output = new ArrayList<>();
+        List<T> output = new ArrayList<>(flow1.size()+flow2.size());
 
         int positionFlow1 = 0;
         int positionFlow2 = 0;

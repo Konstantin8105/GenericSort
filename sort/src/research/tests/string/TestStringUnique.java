@@ -5,7 +5,7 @@ import research.base.TestString;
 public class TestStringUnique<T extends String> extends TestString<String> {
 
     public TestStringUnique() {
-        array = getRandomList(false);
+        array = getRandomList(true);
     }
 
     @Override
