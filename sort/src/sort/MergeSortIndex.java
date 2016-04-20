@@ -57,7 +57,7 @@ public class MergeSortIndex<T extends Comparable<T>> implements Sort<T> {
         return mergeArrays(index, mergeSort(flow1), mergeSort(flow2));
     }
 
-    private int[] mergeArrays(int[] result,int[] flow1, int[] flow2) {
+    private int[] mergeArrays(int[] result, int[] flow1, int[] flow2) {
 
         int positionFlow1 = 0;
         int positionFlow2 = 0;
@@ -67,10 +67,11 @@ public class MergeSortIndex<T extends Comparable<T>> implements Sort<T> {
             if (positionFlow1 == flow1.length && positionFlow2 == flow2.length) {
                 break;
             } else if (positionFlow1 == flow1.length) {
-                System.arraycopy(result,position,flow2,positionFlow2,flow2.length-positionFlow2);
+                System.arraycopy(result, position, flow2, positionFlow2, flow2.length - positionFlow2);
                 positionFlow2 = flow2.length;
             } else if (positionFlow2 == flow2.length) {
-                result[position] = flow1[positionFlow1++];
+                System.arraycopy(result, position, flow1, positionFlow1, flow1.length - positionFlow1);
+                positionFlow1 = flow1.length;
             } else if (list.get(flow1[positionFlow1]).compareTo(list.get(flow2[positionFlow2])) > 0) {
                 result[position] = flow2[positionFlow2++];
             } else {
