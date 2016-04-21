@@ -41,8 +41,8 @@ public class MergeSortIndex2<T extends Comparable<T>> implements Sort<T> {
                 isNextBigger = isNextBigger(list.get(i), list.get(i + 1));
             } else {
                 if (isNextBigger != isNextBigger(list.get(i), list.get(i + 1))) {
-                    if (!isNextBigger) reverse(list, startPoint, finishPoint);
                     finishPoint = i;
+                    if (!isNextBigger) reverse(list, startPoint, finishPoint);
                     partitionLength.add(finishPoint - startPoint + 1);
                     startPoint = i + 1;
                 }
@@ -108,13 +108,18 @@ public class MergeSortIndex2<T extends Comparable<T>> implements Sort<T> {
         return true;
     }
 
+
     private void merge(List<T> list, int initPositionInArray, int sizeLeft, int sizeRight) {
 
-    }
-
-/*
-
-    private int[] mergeArrays(int[] result, int[] flow1, int[] flow2) {
+        int[] flow1 = new int[sizeLeft];
+        for (int i = 0; i < flow1.length; i++) {
+            flow1[i] = initPositionInArray + i;
+        }
+        int[] flow2 = new int[sizeRight];
+        for (int i = 0; i < flow2.length; i++) {
+            flow2[i] = initPositionInArray + sizeLeft + i;
+        }
+        int[] result = new int[sizeLeft + sizeRight];
 
         int positionFlow1 = 0;
         int positionFlow2 = 0;
@@ -124,10 +129,10 @@ public class MergeSortIndex2<T extends Comparable<T>> implements Sort<T> {
             if (positionFlow1 == flow1.length && positionFlow2 == flow2.length) {
                 break;
             } else if (positionFlow1 == flow1.length) {
-                System.arraycopy(result, position, flow2, positionFlow2, flow2.length - positionFlow2);
-                positionFlow2 = flow2.length;
+                System.arraycopy(flow2, positionFlow2, result, position, flow2.length - positionFlow2);
+                break;
             } else if (positionFlow2 == flow2.length) {
-                System.arraycopy(result, position, flow1, positionFlow1, flow1.length - positionFlow1);
+                System.arraycopy(flow1, positionFlow1, result, position, flow1.length - positionFlow1);
                 positionFlow1 = flow1.length;
             } else if (list.get(flow1[positionFlow1]).compareTo(list.get(flow2[positionFlow2])) > 0) {
                 result[position] = flow2[positionFlow2++];
@@ -136,7 +141,14 @@ public class MergeSortIndex2<T extends Comparable<T>> implements Sort<T> {
             }
             position++;
         }
-        return result;
+
+        List<T> temp = new ArrayList<>(result.length);
+        for (int i = 0; i < result.length; i++) {
+            temp.add(list.get(initPositionInArray + i));
+        }
+
+        for (int i = 0; i < temp.size(); i++) {
+            list.set(i + initPositionInArray, temp.get(result[i] - initPositionInArray));
+        }
     }
-    */
 }

@@ -67,11 +67,11 @@ public class MergeSortIndex<T extends Comparable<T>> implements Sort<T> {
             if (positionFlow1 == flow1.length && positionFlow2 == flow2.length) {
                 break;
             } else if (positionFlow1 == flow1.length) {
-                System.arraycopy(result, position, flow2, positionFlow2, flow2.length - positionFlow2);
-                positionFlow2 = flow2.length;
+                System.arraycopy(flow2, positionFlow2, result, position, flow2.length - positionFlow2);
+                break;
             } else if (positionFlow2 == flow2.length) {
-                System.arraycopy(result, position, flow1, positionFlow1, flow1.length - positionFlow1);
-                positionFlow1 = flow1.length;
+                System.arraycopy(flow1, positionFlow1, result, position, flow1.length - positionFlow1);
+                break;
             } else if (list.get(flow1[positionFlow1]).compareTo(list.get(flow2[positionFlow2])) > 0) {
                 result[position] = flow2[positionFlow2++];
             } else {
