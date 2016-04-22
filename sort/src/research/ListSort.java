@@ -8,6 +8,7 @@ public class ListSort {
             new MergeSortIndex2(),
             new MergeSortIndex3(),
             new MergeSortIndex4(),
+            new MergeSortIndexBinary(),
             new MergeSort(),
             new MergeSort2(),
             new MergeSort5Segment(),
