@@ -6,6 +6,8 @@ public class ListSort {
     public static Sort sorts[] = {
             new MergeSortIndex(),
             new MergeSortIndex2(),
+            new MergeSortIndex3(),
+            new MergeSortIndex4(),
             new MergeSort(),
             new MergeSort2(),
             new MergeSort5Segment(),
