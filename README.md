@@ -256,148 +256,291 @@ Result of research
 
 ---------------------------------------
 
-class research.tests.integer.TestNotUnique:
-class sort.MergeSortIndex     	7.82     ms
-class sort.MergeSortIndex2    	29.98    ms
-class sort.MergeSort          	22.11    ms
-class sort.MergeSort2         	24.28    ms
-class sort.MergeSort5Segment  	9.42     ms
-class sort.CountingSort       	6.67     ms
-class sort.SquareSort         	34.93    ms
-class sort.SelectionSort      	183.31   ms
-class sort.BinarySort         	6.93     ms
-class sort.InsertionSort      	111.96   ms
-Collections.sort              	1.75     ms	*
+## class research.tests.integer.TestNotUnique:
 
-class research.tests.integer.TestUnique:
-class sort.MergeSortIndex     	3.35     ms
-class sort.MergeSortIndex2    	11.00    ms
-class sort.MergeSort          	3.28     ms
-class sort.MergeSort2         	10.01    ms
-class sort.MergeSort5Segment  	3.35     ms
-class sort.CountingSort       	10.46    ms
-class sort.SquareSort         	5.40     ms
-class sort.SelectionSort      	84.07    ms
-class sort.BinarySort         	7.87     ms
-class sort.InsertionSort      	85.23    ms
-Collections.sort              	1.78     ms	*
+> class sort.MergeSortIndex     	9.76     ms
 
-class research.tests.integer.TestInvert:
-class sort.MergeSortIndex     	1.40     ms
-class sort.MergeSortIndex2    	2.40     ms
-class sort.MergeSort          	2.26     ms
-class sort.MergeSort2         	2.57     ms
-class sort.MergeSort5Segment  	4.56     ms
-class sort.CountingSort       	2.62     ms
-class sort.SquareSort         	4.66     ms
-class sort.SelectionSort      	116.26   ms
-class sort.BinarySort         	7.32     ms
-class sort.InsertionSort      	160.74   ms
-Collections.sort              	0.43     ms	*
+> class sort.MergeSortIndex2    	30.54    ms
 
-class research.tests.integer.TestSortedList:
-class sort.MergeSortIndex     	1.21     ms
-class sort.MergeSortIndex2    	1.32     ms
-class sort.MergeSort          	2.35     ms
-class sort.MergeSort2         	1.09     ms
-class sort.MergeSort5Segment  	2.95     ms
-class sort.CountingSort       	3.22     ms
-class sort.SquareSort         	4.62     ms
-class sort.SelectionSort      	79.32    ms
-class sort.BinarySort         	0.42     ms
-class sort.InsertionSort      	0.05     ms
-Collections.sort              	0.02     ms	*
+> class sort.MergeSort          	25.98    ms
 
-class research.tests.integer.TestPreSort:
-class sort.MergeSortIndex     	0.74     ms
-class sort.MergeSortIndex2    	3.46     ms
-class sort.MergeSort          	2.42     ms
-class sort.MergeSort2         	4.09     ms
-class sort.MergeSort5Segment  	2.07     ms
-class sort.CountingSort       	0.51     ms
-class sort.SquareSort         	3.16     ms
-class sort.SelectionSort      	76.14    ms
-class sort.BinarySort         	1.30     ms
-class sort.InsertionSort      	0.28     ms	*
-Collections.sort              	0.29     ms
+> class sort.MergeSort2         	26.55    ms
 
-class research.tests.integer.TestSameElements:
-class sort.MergeSortIndex     	0.76     ms
-class sort.MergeSortIndex2    	0.23     ms
-class sort.MergeSort          	1.57     ms
-class sort.MergeSort2         	0.17     ms
-class sort.MergeSort5Segment  	2.32     ms
-class sort.CountingSort       	0.29     ms
-class sort.SquareSort         	24.33    ms
-class sort.SelectionSort      	91.87    ms
-class sort.BinarySort         	6.58     ms
-class sort.InsertionSort      	160.24   ms
-Collections.sort              	0.02     ms	*
+> class sort.MergeSort5Segment  	15.11    ms
 
-class research.tests.integer.TestPreSortWith2Unique:
-class sort.MergeSortIndex     	0.67     ms
-class sort.MergeSortIndex2    	0.48     ms
-class sort.MergeSort          	1.46     ms
-class sort.MergeSort2         	0.29     ms
-class sort.MergeSort5Segment  	2.04     ms
-class sort.CountingSort       	3.02     ms
-class sort.SquareSort         	2.63     ms
-class sort.SelectionSort      	78.53    ms
-class sort.BinarySort         	0.14     ms
-class sort.InsertionSort      	0.08     ms
-Collections.sort              	0.03     ms	*
+> class sort.CountingSort       	6.00     ms
 
-class research.tests.integer.TestPreSortWith5Unique:
-class sort.MergeSortIndex     	0.57     ms
-class sort.MergeSortIndex2    	0.39     ms
-class sort.MergeSort          	1.40     ms
-class sort.MergeSort2         	0.35     ms
-class sort.MergeSort5Segment  	2.11     ms
-class sort.CountingSort       	1.99     ms
-class sort.SquareSort         	3.09     ms
-class sort.SelectionSort      	81.97    ms
-class sort.BinarySort         	0.18     ms
-class sort.InsertionSort      	0.10     ms
-Collections.sort              	0.03     ms	*
+> class sort.SquareSort         	30.14    ms
 
-class research.tests.string.TestStringSameElement:
-class sort.MergeSortIndex     	16.59    ms
-class sort.MergeSortIndex2    	3.15     ms
-class sort.MergeSort          	33.10    ms
-class sort.MergeSort2         	2.75     ms
-class sort.MergeSort5Segment  	12.96    ms
-class sort.CountingSort       	4.69     ms
-class sort.SquareSort         	90.33    ms
-class sort.SelectionSort      	206.72   ms
-class sort.BinarySort         	11.52    ms
-class sort.InsertionSort      	514.30   ms
-Collections.sort              	0.55     ms	*
+> class sort.SelectionSort      	260.69   ms
 
-class research.tests.string.TestStringUnique:
-class sort.MergeSortIndex     	3.95     ms
-class sort.MergeSortIndex2    	15.73    ms
-class sort.MergeSort          	35.85    ms
-class sort.MergeSort2         	29.57    ms
-class sort.MergeSort5Segment  	15.60    ms
-class sort.CountingSort       	25.35    ms
-class sort.SquareSort         	45.23    ms
-class sort.SelectionSort      	941.19   ms
-class sort.BinarySort         	13.54    ms
-class sort.InsertionSort      	546.52   ms
-Collections.sort              	3.85     ms	*
+> class sort.BinarySort         	11.26    ms
 
-class research.tests.string.TestStringNotUnique:
-class sort.MergeSortIndex     	4.08     ms
-class sort.MergeSortIndex2    	5.17     ms
-class sort.MergeSort          	3.08     ms
-class sort.MergeSort2         	11.85    ms
-class sort.MergeSort5Segment  	5.16     ms
-class sort.CountingSort       	0.40     ms	*
-class sort.SquareSort         	8.72     ms
-class sort.SelectionSort      	586.59   ms
-class sort.BinarySort         	7.87     ms
-class sort.InsertionSort      	380.14   ms
-Collections.sort              	0.72     ms
+> class sort.InsertionSort      	219.22   ms
+
+> Collections.sort              	1.44     ms	*
+
+
+
+## class research.tests.integer.TestUnique:
+
+> class sort.MergeSortIndex     	3.21     ms
+
+> class sort.MergeSortIndex2    	10.81    ms
+
+> class sort.MergeSort          	3.03     ms
+
+> class sort.MergeSort2         	23.20    ms
+
+> class sort.MergeSort5Segment  	3.38     ms
+
+> class sort.CountingSort       	10.93    ms
+
+> class sort.SquareSort         	4.75     ms
+
+> class sort.SelectionSort      	88.74    ms
+
+> class sort.BinarySort         	8.18     ms
+
+> class sort.InsertionSort      	86.75    ms
+
+> Collections.sort              	1.07     ms	*
+
+
+
+## class research.tests.integer.TestInvert:
+
+> class sort.MergeSortIndex     	0.76     ms
+
+> class sort.MergeSortIndex2    	1.47     ms
+
+> class sort.MergeSort          	1.24     ms
+
+> class sort.MergeSort2         	3.25     ms
+
+> class sort.MergeSort5Segment  	1.85     ms
+
+> class sort.CountingSort       	1.62     ms
+
+> class sort.SquareSort         	2.70     ms
+
+> class sort.SelectionSort      	102.97   ms
+
+> class sort.BinarySort         	7.68     ms
+
+> class sort.InsertionSort      	160.80   ms
+
+> Collections.sort              	0.54     ms	*
+
+
+
+## class research.tests.integer.TestSortedList:
+
+> class sort.MergeSortIndex     	0.74     ms
+
+> class sort.MergeSortIndex2    	0.87     ms
+
+> class sort.MergeSort          	1.24     ms
+
+> class sort.MergeSort2         	1.22     ms
+
+> class sort.MergeSort5Segment  	1.58     ms
+
+> class sort.CountingSort       	2.95     ms
+
+> class sort.SquareSort         	2.85     ms
+
+> class sort.SelectionSort      	79.41    ms
+
+> class sort.BinarySort         	0.74     ms
+
+> class sort.InsertionSort      	0.08     ms
+
+> Collections.sort              	0.03     ms	*
+
+
+
+## class research.tests.integer.TestPreSort:
+
+> class sort.MergeSortIndex     	0.74     ms
+
+> class sort.MergeSortIndex2    	2.12     ms
+
+> class sort.MergeSort          	1.37     ms
+
+> class sort.MergeSort2         	3.39     ms
+
+> class sort.MergeSort5Segment  	2.34     ms
+
+> class sort.CountingSort       	1.28     ms
+
+> class sort.SquareSort         	5.11     ms
+
+> class sort.SelectionSort      	83.14    ms
+
+> class sort.BinarySort         	1.57     ms
+
+> class sort.InsertionSort      	0.26     ms	*
+
+> Collections.sort              	0.40     ms
+
+
+
+## class research.tests.integer.TestSameElements:
+
+> class sort.MergeSortIndex     	0.80     ms
+
+> class sort.MergeSortIndex2    	0.31     ms
+
+> class sort.MergeSort          	1.35     ms
+
+> class sort.MergeSort2         	0.77     ms
+
+> class sort.MergeSort5Segment  	2.75     ms
+
+> class sort.CountingSort       	0.38     ms
+
+> class sort.SquareSort         	28.26    ms
+
+> class sort.SelectionSort      	89.14    ms
+
+> class sort.BinarySort         	7.11     ms
+
+> class sort.InsertionSort      	160.50   ms
+
+> Collections.sort              	0.02     ms	*
+
+
+
+## class research.tests.integer.TestPreSortWith2Unique:
+
+> class sort.MergeSortIndex     	0.53     ms
+
+> class sort.MergeSortIndex2    	0.35     ms
+
+> class sort.MergeSort          	1.15     ms
+
+> class sort.MergeSort2         	0.88     ms
+
+> class sort.MergeSort5Segment  	1.54     ms
+
+> class sort.CountingSort       	3.38     ms
+
+> class sort.SquareSort         	4.56     ms
+
+> class sort.SelectionSort      	82.71    ms
+
+> class sort.BinarySort         	0.14     ms
+
+> class sort.InsertionSort      	0.10     ms
+
+> Collections.sort              	0.03     ms	*
+
+
+
+## class research.tests.integer.TestPreSortWith5Unique:
+
+> class sort.MergeSortIndex     	0.55     ms
+
+> class sort.MergeSortIndex2    	0.37     ms
+
+> class sort.MergeSort          	1.52     ms
+
+> class sort.MergeSort2         	0.43     ms
+
+> class sort.MergeSort5Segment  	1.55     ms
+
+> class sort.CountingSort       	2.17     ms
+
+> class sort.SquareSort         	3.13     ms
+
+> class sort.SelectionSort      	75.69    ms
+
+> class sort.BinarySort         	0.16     ms
+
+> class sort.InsertionSort      	0.09     ms
+
+> Collections.sort              	0.06     ms	*
+
+
+
+## class research.tests.string.TestStringSameElement:
+
+> class sort.MergeSortIndex     	16.10    ms
+
+> class sort.MergeSortIndex2    	2.42     ms
+
+> class sort.MergeSort          	24.28    ms
+
+> class sort.MergeSort2         	3.95     ms
+
+> class sort.MergeSort5Segment  	32.94    ms
+
+> class sort.CountingSort       	4.50     ms
+
+> class sort.SquareSort         	81.85    ms
+
+> class sort.SelectionSort      	211.86   ms
+
+> class sort.BinarySort         	9.07     ms
+
+> class sort.InsertionSort      	532.02   ms
+
+> Collections.sort              	0.55     ms	*
+
+
+
+## class research.tests.string.TestStringUnique:
+
+> class sort.MergeSortIndex     	4.03     ms
+
+> class sort.MergeSortIndex2    	29.99    ms
+
+> class sort.MergeSort          	44.97    ms
+
+> class sort.MergeSort2         	43.75    ms
+
+> class sort.MergeSort5Segment  	36.54    ms
+
+> class sort.CountingSort       	18.78    ms
+
+> class sort.SquareSort         	25.26    ms
+
+> class sort.SelectionSort      	959.51   ms
+
+> class sort.BinarySort         	13.12    ms
+
+> class sort.InsertionSort      	537.69   ms
+
+> Collections.sort              	1.22     ms	*
+
+
+
+## class research.tests.string.TestStringNotUnique:
+
+> class sort.MergeSortIndex     	2.61     ms
+
+> class sort.MergeSortIndex2    	5.22     ms
+
+> class sort.MergeSort          	5.23     ms
+
+> class sort.MergeSort2         	7.84     ms
+
+> class sort.MergeSort5Segment  	3.35     ms
+
+> class sort.CountingSort       	0.84     ms
+
+> class sort.SquareSort         	9.13     ms
+
+> class sort.SelectionSort      	586.28   ms
+
+> class sort.BinarySort         	9.59     ms
+
+> class sort.InsertionSort      	390.13   ms
+
+> Collections.sort              	0.72     ms	*
+
+
 
 ---------------------------------------
 

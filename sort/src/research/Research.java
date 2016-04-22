@@ -22,7 +22,7 @@ public class Research {
 
     public static void main(String[] args) throws Exception {
         for (Test<?> test : ListTests.tests) {
-            System.out.println("\n" + test.getClass().toString() + ":");
+            System.out.println("\n\n## " + test.getClass().toString() + ":\n");
 
             OutputResult result[] = new OutputResult[ListSort.sorts.length + 1];
 
@@ -51,7 +51,7 @@ public class Research {
             for (int i = 0; i < result.length; i++) {
                 char winnerChar = SORT_LOST;
                 if (result[i].winner) winnerChar = SORT_WINNER;
-                String out = String.format("%-30s\t%-8.2f ms\t%c", result[i].sortName, result[i].time, winnerChar);
+                String out = String.format("> %-30s\t%-8.2f ms\t%c\n", result[i].sortName, result[i].time, winnerChar);
                 System.out.println(out);
             }
             System.out.flush();
