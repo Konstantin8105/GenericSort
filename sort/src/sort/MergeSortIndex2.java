@@ -23,12 +23,9 @@ public class MergeSortIndex2<T extends Comparable<T>> implements Sort<T> {
 
         this.list = list;
 
-
         List<Integer> parts = partitions(indexes);
 
-
         mergeParts(indexes, parts);
-
 
         List<T> result = new ArrayList<>(list);
         for (int i = 0; i < indexes.size(); i++) {
@@ -46,9 +43,9 @@ public class MergeSortIndex2<T extends Comparable<T>> implements Sort<T> {
         int i = 0;
         for (; i < indexes.size() - 1; i++) {
             if (startPoint == i) {
-                isNextBigger = isNextBigger(indexes, i, i + 1);//result.get(i), result.get(i + 1));
+                isNextBigger = isNextBigger(indexes, i, i + 1);
             } else {
-                if (isNextBigger != isNextBigger(indexes, i, i + 1)) {//result.get(i), result.get(i + 1))) {
+                if (isNextBigger != isNextBigger(indexes, i, i + 1)) {
                     finishPoint = i;
                     if (!isNextBigger) reverse(indexes, startPoint, finishPoint);
                     partitionLength.add(finishPoint - startPoint + 1);
@@ -71,22 +68,9 @@ public class MergeSortIndex2<T extends Comparable<T>> implements Sort<T> {
         }
     }
 
-//    private void swap(List<Integer> list, int i, int j) {
-////        T temp = list.get(i);
-////        list.set(i, list.get(j));
-////        list.set(j, temp);
-//        list.set(i, list.set(j, list.get(i)));
-//    }
-
     private void swap(List<Integer> indexes, int i, int j) {
         indexes.set(i, indexes.set(j, indexes.get(i)));
     }
-
-    //    boolean isNextBigger(T present, T next) {
-//        if (present.compareTo(next) <= 0)
-//            return true;
-//        return false;
-//    }
 
     boolean isNextBigger(List<Integer> indexes, int present, int next) {
         return isNextBigger(indexes.get(present), indexes.get(next));
@@ -119,7 +103,6 @@ public class MergeSortIndex2<T extends Comparable<T>> implements Sort<T> {
             }
         }
     }
-
 
     private boolean isSinglePart(List<Integer> parts) {
         int amount = 0;
@@ -157,7 +140,7 @@ public class MergeSortIndex2<T extends Comparable<T>> implements Sort<T> {
                 result[i] = flow2[i];
             }
             for (int i = 0; i < flow1.length; i++) {
-                result[i+flow2.length] = flow1[i];
+                result[i + flow2.length] = flow1[i];
             }
             for (int i = 0; i < result.length; i++) {
                 indexes.set(initPositionInArray + i, result[i]);
