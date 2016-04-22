@@ -7,7 +7,7 @@ public abstract class Test<T extends Comparable<T>> {
 
     protected final static Random random = new Random();
 
-    protected static int amountArray = 20_000;
+    protected static int amountArray = 10_000;
 
     public abstract String getName();
 
