@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 public class TestCorrection {
 
-    private final int SIZE_TEST_ELEMENTS = 11;
+    private final int SIZE_TEST_ELEMENTS = 110;
 
     Random rnd = new Random();
 

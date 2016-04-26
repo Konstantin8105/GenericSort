@@ -5,7 +5,7 @@ import java.util.List;
 
 public class MergeSortIndex3<T extends Comparable<T>> implements Sort<T> {
 
-    private final int INSERTION_SORT_BORDER = 8;
+    private final int MIN_RUN = 32;
 
     private List<T> list;
 
@@ -59,7 +59,38 @@ public class MergeSortIndex3<T extends Comparable<T>> implements Sort<T> {
         if (!isNextBigger) reverse(indexes, startPoint, finishPoint);
         partitionLength.add(finishPoint - startPoint + 1);
 
+        return createMinRun(indexes, partitionLength);
+    }
+
+    private List<Integer> createMinRun(List<Integer> indexes, List<Integer> partitionLength) {
+        int start = 0;
+        int amount = 0;
+        int position = 0;
+        for (int i = 0; i < partitionLength.size(); i++) {
+            amount += partitionLength.get(i);
+            if (amount >= MIN_RUN || i == partitionLength.size() - 1) {
+                for (int j = start; j <= i; j++) {
+                    partitionLength.set(j,0);
+                }
+                insertSort(indexes,position,amount);
+                partitionLength.set(i,amount);
+                position += amount;
+                amount = 0;
+                start = i + 1;
+            }
+        }
         return partitionLength;
+    }
+
+    private void insertSort(List<Integer> indexes, int position, int amount) {
+        // insertion sort
+        for (int i = 0; i < amount; i++) {
+            for (int j = i; j > 0; j--) {
+                if (!isNextBigger(indexes, position + j - 1, position + j)) {
+                    swap(indexes, position + j - 1, position + j);
+                }
+            }
+        }
     }
 
     private void reverse(List<Integer> indexes, int from, int to) {
@@ -120,18 +151,6 @@ public class MergeSortIndex3<T extends Comparable<T>> implements Sort<T> {
     }
 
     private void merge(List<Integer> indexes, int initPositionInArray, int sizeLeft, int sizeRight) {
-
-        if (sizeLeft + sizeRight < INSERTION_SORT_BORDER) {
-            // insertion sort
-            for (int i = 0; i < sizeLeft + sizeRight; i++) {
-                for (int j = i; j > 0; j--) {
-                    if (!isNextBigger(indexes, initPositionInArray+j - 1, initPositionInArray+j)) {
-                        swap(indexes, initPositionInArray+j - 1, initPositionInArray+j);
-                    }
-                }
-            }
-            return;
-        }
 
         int[] result = new int[sizeLeft + sizeRight];
 
