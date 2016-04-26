@@ -27,9 +27,10 @@ public class MergeSortIndex2<T extends Comparable<T>> implements Sort<T> {
 
         mergeParts(indexes, parts);
 
-        List<T> result = new ArrayList<>(list);
+        List<T> result = new ArrayList<>(list.size());
         for (int i = 0; i < indexes.size(); i++) {
-            result.set(i, list.get(indexes.get(i)));
+            //result.set(i, list.get(indexes.get(i)));
+            result.add(list.get(indexes.get(i)));
         }
 
         return result;

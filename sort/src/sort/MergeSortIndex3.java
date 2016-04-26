@@ -5,7 +5,7 @@ import java.util.List;
 
 public class MergeSortIndex3<T extends Comparable<T>> implements Sort<T> {
 
-    private final int MIN_RUN = 32;
+    private final int MIN_RUN = 8;
 
     private List<T> list;
 
@@ -29,9 +29,10 @@ public class MergeSortIndex3<T extends Comparable<T>> implements Sort<T> {
 
         mergeParts(indexes, parts);
 
-        List<T> result = new ArrayList<>(list);
+        List<T> result = new ArrayList<>(list.size());//list);
         for (int i = 0; i < indexes.size(); i++) {
-            result.set(i, list.get(indexes.get(i)));
+            //result.set(i, list.get(indexes.get(i)));
+            result.add(list.get(indexes.get(i)));
         }
 
         return result;
@@ -69,10 +70,10 @@ public class MergeSortIndex3<T extends Comparable<T>> implements Sort<T> {
         for (int i = 0; i < partitionLength.size(); i++) {
             amount += partitionLength.get(i);
             if (amount >= MIN_RUN || i == partitionLength.size() - 1) {
+                if(start < i)insertSort(indexes,position,amount);
                 for (int j = start; j <= i; j++) {
                     partitionLength.set(j,0);
                 }
-                insertSort(indexes,position,amount);
                 partitionLength.set(i,amount);
                 position += amount;
                 amount = 0;
@@ -153,7 +154,7 @@ public class MergeSortIndex3<T extends Comparable<T>> implements Sort<T> {
     private void merge(List<Integer> indexes, int initPositionInArray, int sizeLeft, int sizeRight) {
 
         int[] result = new int[sizeLeft + sizeRight];
-
+/*
         if (isNextBigger(indexes.get(initPositionInArray + sizeLeft - 1), indexes.get(initPositionInArray + sizeLeft))) {
             return;
         } else if (isNextBigger(indexes.get(initPositionInArray + sizeLeft + sizeRight - 1), indexes.get(initPositionInArray))) {
@@ -168,7 +169,7 @@ public class MergeSortIndex3<T extends Comparable<T>> implements Sort<T> {
             }
             return;
         }
-
+*/
         int[] flow1 = new int[sizeLeft];
         for (int i = 0; i < flow1.length; i++) {
             flow1[i] = indexes.get(initPositionInArray + i);

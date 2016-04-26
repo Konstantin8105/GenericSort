@@ -25,7 +25,7 @@ public class MergeSortIndex4<T extends Comparable<T>> implements Sort<T> {
         }
         index = mergeSort(index);
 
-        List<T> output = new ArrayList<>();
+        List<T> output = new ArrayList<>(list.size());
         for (int i = 0; i < index.length; i++) {
             output.add(this.list.get(index[i]));
         }
